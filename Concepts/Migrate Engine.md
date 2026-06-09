@@ -1,0 +1,3 @@
+- Mục tiêu: thay đổi cách thức DB lưu trữ và xử lý dữ liệu dưới tầng vật lý (ví dụ: Từ MyISAM sang InnoDB trong MySQL, hoặc từ Row-store sang Column-store). Nhằm Tăng hiệu suất, khả năng chịu lỗi (Transaction) hoặc bảo mật. Phần cực phức tạp, ít khi xảy ra. 
+
+- Công việc cụ thể: Thay đổi các tham số cấu hình hệ thống (Buffer pool size, Log file size). Điều chỉnh cấu trúc lưu trữ vật lý (Rebuild table/index). Chuyển đổi các Stored Procedures, Triggers, Views (Đây là phần khó nhất vì mỗi Engine có ngôn ngữ lập trình riêng như PL/SQL, T-SQL). 

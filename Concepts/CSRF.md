@@ -1,0 +1,9 @@
+- kẻ tấn công ép trình duyệt nạn nhân gửi một request đính kèm xác thực đến server.
+
+- Thông thường, các logic xác thực thường tạo và lưu trữ token xác thực ngay trên trình duyệt người dùng. Các token này thường được lưu trong cookie trên browser. Khi một request được gửi đi, browser sẽ tự động đính kèm cookie vào header request đó. Để khi server nhận request sẽ căn cứ vào cookie đính kèm theo để xác thực.
+
+- Dựa vào logic này, attacker xây dựng kịch bản, mục đích để thiết bị user tự gửi 1 request hợp lệ mà user không mong muốn, cũng như không hề nhận ra, giả dụ như chuyển tiền cho attacker chẳng hạn, đánh lừa hệ thống rằng đây là một giao dịch hợp lệ của 1 user đã xác thực.
+
+- Kịch bản xây dựng như sau, attacker tạo một request chuyển tiền chẳng hạn. Đính kèm nó trong mail, website,... đâu đó liên quan đến user, mục đích để user thực hiện thao tác với nó như click mở chẳng hạn, một event tự động kích hoạt tự động chạy ngầm gửi một request đến máy chủ. Lúc này request đang thực hiện gửi request trên thiết bị nạn nhân, browser tự động đính kèm token xác thực hợp lệ trong request mạo danh này đến máy chủ. Máy chủ xác thực thành công và thực hiện xử lý request. Đây là request chuyển tiền và đã được xác thực -> giao dịch thành công -> user mất tiền -> attaker nhận tiền thành công.
+- Hoặc gửi request về máy chủ attacker, chúng sẽ thực hiện lấy thông tin token xác thực của user để đăng nhập tài khoản này.
+- Phương án phòng tránh: Back-end và Front-end setting cookie http-only, same-site, secure, thiết lập path để đính kèm cookie khi cần thiết,... Điều này khiến cookie sẽ không đính kèm trong request tùy tiện, chỉ khi cùng domain, không đọc được token bằng js, đúng path chỉ đính thì chúng mới tự động đính kèm token này vào request. Attacker ép user gửi request nhưng không cùng site request phía trình duyệt không lấy được token, máy chủ của attacker cũng không cùng site với site đang gửi lên chúng cũng không đính kèm được.

@@ -1,0 +1,1 @@
+[[Worker]], Scheduler, Cron Job, Message Consumer, Background Service,... Không có giao diện, Chạy nền, Hoạt động trên server, Có thể chạy 24/7, Thực hiện công việc tự động. Scheduler, Cron Job chạy theo lịch, chạy liên tục để tính toán thời gian thực thi. batch thường làm nhiều thứ cùng lúc, xử lý dữ liệu tác vụ, đơn giản nó là 1 action.
