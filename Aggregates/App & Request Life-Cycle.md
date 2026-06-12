@@ -162,7 +162,9 @@ Singleton biến dữ liệu lưu trữ bên trong nó thành dữ liệu "Toàn
 
 ### Nhược điểm 2: Khó viết Unit Test (Code lỗi dây chuyền)
 
-Do Singleton sống suốt vòng đời ứng dụng và giữ nguyên trạng thái, các ca kiểm thử (Unit Test) sẽ bị phụ thuộc lẫn nhau. Nếu _Test Case 1_ chạy và làm thay đổi một biến bên trong Singleton, thì _Test Case 2_ chạy sau đó sẽ bị sai lệch kết quả do dính phải "dữ liệu rác" mà _Test Case 1_ để lại. Việc cô lập môi trường test trở nên cực kỳ phức tạp vì Singleton không tự reset sau mỗi phiên. Đây là trường hợp singleton cho statefull. Singleton kết hợp với tài nguyên bên ngoài như DB, file, API bên khác. Vì phải call đích danh service.getInstance() khiến khó nhét mock dữ liệu vào để test
+Do Singleton sống suốt vòng đời ứng dụng và giữ nguyên trạng thái, các ca kiểm thử (Unit Test) sẽ bị phụ thuộc lẫn nhau. Nếu _Test Case 1_ chạy và làm thay đổi một biến bên trong Singleton, thì _Test Case 2_ chạy sau đó sẽ bị sai lệch kết quả do dính phải "dữ liệu rác" mà _Test Case 1_ để lại. Việc cô lập môi trường test trở nên cực kỳ phức tạp vì Singleton không tự reset sau mỗi phiên. Đây là trường hợp singleton cho statefull.
+
+Trường hợp khác, đó là vì nó ép buộc các class khác phải gọi đích danh nó, khiến không thể chặn đường để nhét một DB mock vào được. Code sẽ bị gắn chặt với DB thật, file thật, api bên thứ 3 thật (cơ chế refrence).
 
 ## 6. Sự Tiến Hóa Với Dependency Injection (DI) Container
 
@@ -197,7 +199,18 @@ Do Singleton sống suốt vòng đời ứng dụng và giữ nguyên trạng t
     ```
     
 3. **Bơm phụ thuộc (Injection):** Khi có Request đến, DI Container kiểm tra `UserController`, thấy nó cần một `IDatabase`. Nó lập tức lục trong "kho" của nó, lấy địa chỉ của Instance `DatabaseConnection` duy nhất (đã tạo từ lúc start server) và **tự động "bơm" (Inject)** vào Controller này.
-    
+
+### So sánh lợi ích khi có/ko dùng DI
+
+1. **Khởi tạo và sử dụng object:**
+  - Khi KHÔNG dùng DI (Dependency Injection): Để sử dụng các hàm xử lý (logic) của một Service, ta phải khởi tạo đối tượng đó thủ công bằng từ khóa new. Trong một dự án lớn chứa hàng trăm đối tượng có mối quan hệ chồng chéo, việc tự khởi tạo này sẽ dẫn đến code bị rườm rà và phụ thuộc chặt chẽ (tight coupling). Đặc biệt, khi các đối tượng cần được khởi tạo theo một thứ tự nhất định (đối tượng A cần đối tượng B trước), người lập trình sẽ phải tự sắp xếp và cấu hình thủ công trong mã nguồn, gây tốn thời gian và rất dễ sinh lỗi khi hệ thống mở rộng.
+  - Khi CÓ dùng DI (Dependency Injection): Lập trình viên chỉ cần khai báo sự phụ thuộc giữa các đối tượng thông qua Interface và Implementation (lớp triển khai). Các Framework DI sẽ sử dụng một cơ chế gọi là Dependency Graph (Biểu đồ phụ thuộc) để tự động phân tích cấu trúc, đảo ngược phụ thuộc (Inversion of Control), tự động sắp xếp thứ tự và khởi tạo các đối tượng. Nếu cấu hình ở dạng Singleton, các đối tượng này chỉ được khởi tạo một lần duy nhất, lưu trữ tập trung trong bộ nhớ (RAM) và tự động "tiêm" (inject) vào nơi cần thiết, giúp tối ưu hiệu năng và quản lý code dễ dàng hơn. Đầu óc hoàn toàn giải phóng khởi việc new thủ công.
+2. **Liên kết lỏng lẻo (Loose Coupling):**
+  - Nhờ cơ chế liên kết lỏng lẻo, hệ thống trở nên linh hoạt và cực kỳ dễ thay thế. Hãy tưởng tượng bạn là một đối tượng (Object) đang phụ thuộc vào một nhà mạng để gửi tin nhắn. Khi nhà mạng này tăng giá, bạn có thể dễ dàng thay thế bằng một nhà mạng khác bằng cách "tiêm" (inject) phụ thuộc mới vào, mà không cần sửa đổi code của đối tượng hiện tại.
+
+    - Điều kiện tiên quyết: Các phụ thuộc thay thế phải có cùng bản chất về mặt tính năng (ví dụ: đều là dịch vụ gửi tin nhắn và tính phí), dù logic xử lý bên trong của mỗi nhà mạng có thể khác nhau.
+
+    - Vai trò của Interface: Đây là lý do vì sao DI luôn cần đi kèm với Interface. Bạn sẽ định nghĩa một Interface chung (ví dụ: INhaMangRepository), sau đó cài đặt các Class cụ thể cho từng nhà mạng. Khi muốn đổi nhà mạng, bạn chỉ cần thay đổi cấu hình nạp phụ thuộc (Dependency) tương ứng mà không làm ảnh hưởng đến lõi của hệ thống.
 
 ## 7. Tổng Kết Thực Tế Ngành Công Nghiệp (Stateless Service Architecture)
 
