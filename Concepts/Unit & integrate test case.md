@@ -1,0 +1,30 @@
+- Overview
+	- Env: Local, dev, stg, trial or rehearsal, product
+	- Browser: Google, firefox
+	- OS: windown
+	- Corp ID: erp develop
+	- Id task or ticket: #11111
+	- Sum
+		- OK: bao nhiêu case ?
+		- NG: ... ?
+		- Pending: .... ?
+		- Remain: ... ?
+- Content
+	- No
+	- Item: Tên item như button nào ? model > input nào ?
+	- Classification:
+		- Display
+		- Funtion
+		- Validate
+		- Orther
+	- Condition prefix
+		- Truy cập url nào ?
+		- Đăng nhập account gì ? role gì ? có quyền thao tác hay không ?
+		- Dữ liệu đã đến giới hạn chưa ? trước đó có đầy đủ dữ liệu chưa ? có dữ liệu lịch sử hay không ?
+	- Input 1 > 2 > 3 > ...
+		- Mô tả các bước thao tác đầu cuối, hệ quả của từng bước mô tả sang input tiếp theo. Ví dụ: input 1 truy cập, đăng nhập, click button xxx (hệ quả modal aaa hiển thị). Input 2 nhập dữ liệu gì trên input (lúc này đang nói đến modal aaa), Input 3 click button qqqq submit
+	- Output: 1 > 2 > 3 mô tả từng kết quả input đó có gì diễn ra. VÍ dụ: 1: hiển thị modal, 2: dữ liệu input đó là.... 3: hiển thị popup thông báo thành công, màu sắc, vị trí,...
+	- Result: OK, NG, peding, remaind
+	- Tester: Tên người thực hiện
+	- Date: Thời gian thực hiện
+	- Note: Trong các thành phần nội dung để link đến tài liệu chụp ảnh, video thực hiện, kết quả dữ liệu trước và sau để minh chứng cho test case đó. Test case này dùng cho unit + integration test. Áp dụng cho UI và api đều được
