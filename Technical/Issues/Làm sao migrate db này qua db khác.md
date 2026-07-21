@@ -6,9 +6,9 @@
 
 
 - Chi tiết các thành phần migrate:
-	- [[Migrate schema]]: Đây là việc di chuyển "bản vẽ thiết kế" của database
+	- [[Migrate Schema]]: Đây là việc di chuyển "bản vẽ thiết kế" của database
 	- [[Migrate Data]]
-	- [[Migrate engine]]
+	- [[Migrate Engine]]
 
 - Tuy nhiên, đối với mỗi công nghệ được phát triển riêng bởi các nền tảng tri thức khác nhau, nên triết lý vận hành khác nhau do đó có nhiều thành phần không tương đồng. Vậy quy trình xử lý riêng thường theo quy trình 
 
