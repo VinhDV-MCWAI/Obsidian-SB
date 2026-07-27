@@ -1,3 +1,693 @@
+Queue là một trong những Data Structure cơ bản và xuất hiện rất nhiều trong hệ thống backend, OS, networking, database và distributed systems. Nếu **Stack đại diện cho LIFO (Last In First Out)** thì **Queue đại diện cho FIFO (First In First Out)**.
+
+---
+
+# Queue là gì?
+
+Queue (hàng đợi) là cấu trúc dữ liệu chỉ cho phép:
+
+- thêm phần tử ở cuối (rear/tail)
+    
+- lấy phần tử ở đầu (front/head)
+    
+
+Giống như xếp hàng mua vé.
+
+```
+Front                           Rear
+
++----+----+----+----+
+| A  | B  | C  | D  |
++----+----+----+----+
+
+enqueue(E)
+
++----+----+----+----+----+
+| A  | B  | C  | D  | E  |
++----+----+----+----+----+
+
+dequeue()
+
++----+----+----+----+
+| B  | C  | D  | E  |
++----+----+----+----+
+```
+
+Luật duy nhất:
+
+> Ai vào trước thì ra trước.
+
+---
+
+# Queue lưu dữ liệu trong bộ nhớ như thế nào?
+
+Queue không quy định cách lưu.
+
+Nó chỉ quy định **hành vi (FIFO)**.
+
+Có nhiều cách hiện thực.
+
+---
+
+## Cách 1: Array
+
+Ví dụ:
+
+```
+Memory
+
+Index
+
+0    1    2    3    4
++----+----+----+----+----+
+| A  | B  | C  |    |    |
++----+----+----+----+----+
+
+front = 0
+rear = 2
+```
+
+enqueue(D)
+
+```
++----+----+----+----+----+
+| A  | B  | C  | D  |    |
++----+----+----+----+----+
+
+rear = 3
+```
+
+dequeue()
+
+không copy dữ liệu
+
+chỉ tăng front
+
+```
+front = 1
+
++----+----+----+----+----+
+| A  | B  | C  | D  |    |
++----+----+----+----+----+
+```
+
+A vẫn còn trong RAM.
+
+Chỉ là queue không còn sử dụng nữa.
+
+---
+
+## Vấn đề nếu dùng Array đơn giản
+
+Sau nhiều dequeue
+
+```
+front = 9000
+rear = 9999
+capacity = 10000
+```
+
+Mặc dù còn rất nhiều ô trống phía trước
+
+```
+[ ][ ][ ][ ][ ]..........
+          ^
+front
+```
+
+rear lại tới cuối mảng.
+
+enqueue sẽ báo đầy.
+
+---
+
+## Circular Queue
+
+Đây là cách phổ biến.
+
+```
+capacity = 8
+
+      rear
+       ↓
++---+---+---+---+---+---+---+---+
+| G | H |   |   | C | D | E | F |
++---+---+---+---+---+---+---+---+
+            ↑
+          front
+```
+
+rear quay vòng về đầu.
+
+Không cần copy.
+
+O(1).
+
+---
+
+## Cách 2: Linked List
+
+```
+Head
+
+↓
+
+A -> B -> C -> D
+
+             ↑
+
+            Tail
+```
+
+enqueue
+
+```
+Tail.next = newNode
+
+Tail = newNode
+```
+
+dequeue
+
+```
+Head = Head.next
+```
+
+Không cần dịch chuyển dữ liệu.
+
+---
+
+# Queue gồm những operation gì?
+
+## enqueue()
+
+Thêm cuối.
+
+```
+enqueue(X)
+
+A B C
+
+↓
+
+A B C X
+```
+
+---
+
+## dequeue()
+
+Lấy đầu.
+
+```
+A B C
+
+↓
+
+B C
+```
+
+---
+
+## peek()
+
+Xem đầu queue.
+
+Không xóa.
+
+```
+peek()
+
+A B C
+
+return A
+```
+
+---
+
+## isEmpty()
+
+```
+size == 0
+```
+
+---
+
+## size()
+
+```
+return count
+```
+
+---
+
+## clear()
+
+Xóa toàn bộ.
+
+---
+
+# Big-O
+
+## Queue dùng LinkedList
+
+|Operation|Complexity|
+|---|---|
+|enqueue|O(1)|
+|dequeue|O(1)|
+|peek|O(1)|
+|size|O(1)|
+|clear|O(n) (hoặc O(1) nếu chỉ bỏ tham chiếu, tùy ngôn ngữ/GC)|
+
+---
+
+## Queue dùng Circular Array
+
+|Operation|Complexity|
+|---|---|
+|enqueue|O(1) amortized|
+|dequeue|O(1)|
+|peek|O(1)|
+|random access|O(1) nếu tự truy cập theo chỉ số nội bộ, nhưng **không phải** API chuẩn của Queue|
+|resize|O(n)|
+
+---
+
+# Vì sao enqueue/dequeue là O(1)?
+
+enqueue
+
+```
+rear++
+
+arr[rear]=x
+```
+
+Hai thao tác.
+
+Không phụ thuộc n.
+
+---
+
+dequeue
+
+```
+front++
+```
+
+Không copy.
+
+Không dịch chuyển.
+
+---
+
+Sai lầm phổ biến:
+
+```
+A B C D
+
+↓
+
+dequeue
+
+B C D
+```
+
+Nhiều người nghĩ:
+
+```
+copy B
+copy C
+copy D
+```
+
+Thực tế queue chuẩn không làm vậy.
+
+Chỉ tăng front.
+
+---
+
+# Ưu điểm
+
+## 1. FIFO tự nhiên
+
+Rất phù hợp cho:
+
+- request
+    
+- event
+    
+- task
+    
+- packet
+    
+
+---
+
+## 2. enqueue/dequeue O(1)
+
+Không phải dịch chuyển dữ liệu.
+
+---
+
+## 3. Producer Consumer
+
+```
+Producer
+
+↓
+
+Queue
+
+↓
+
+Consumer
+```
+
+Đây là mô hình cực phổ biến.
+
+---
+
+## 4. Giảm coupling
+
+Producer không cần biết consumer.
+
+Consumer cũng không biết producer.
+
+---
+
+# Nhược điểm
+
+## 1. Không truy cập ngẫu nhiên hiệu quả theo API
+
+Không thể:
+
+```
+queue[300]
+```
+
+vì Queue không thiết kế cho random access.
+
+---
+
+## 2. Không tìm kiếm nhanh
+
+```
+contains(x)
+```
+
+phải duyệt.
+
+O(n)
+
+---
+
+## 3. Không phù hợp khi cần insert giữa
+
+```
+A B C D
+
+insert X
+
+↓
+
+A B X C D
+```
+
+Queue không hỗ trợ.
+
+---
+
+# Trade-off với Data Structure khác
+
+|Data Structure|Điểm mạnh|Điểm yếu|
+|---|---|---|
+|Array|Random access O(1), cache locality tốt|Thêm/xóa đầu O(n)|
+|Linked List|Chèn/xóa đầu/cuối O(1)|Cache locality kém, tốn bộ nhớ cho con trỏ|
+|Stack|LIFO|Không FIFO|
+|Queue|FIFO|Không random access|
+|Deque|Thêm/xóa cả hai đầu O(1)|API phức tạp hơn Queue|
+|Priority Queue|Lấy phần tử ưu tiên cao nhất|Không còn đảm bảo FIFO tuyệt đối|
+
+---
+
+# Queue được dùng ở đâu?
+
+## Operating System
+
+CPU Scheduler
+
+```
+Process
+
+↓
+
+Ready Queue
+
+↓
+
+CPU
+```
+
+---
+
+## Printer
+
+```
+Document
+
+↓
+
+Print Queue
+
+↓
+
+Printer
+```
+
+---
+
+## Web Server
+
+```
+HTTP Request
+
+↓
+
+Queue
+
+↓
+
+Worker
+```
+
+---
+
+## RabbitMQ
+
+```
+Producer
+
+↓
+
+Queue
+
+↓
+
+Consumer
+```
+
+---
+
+## Kafka
+
+```
+Producer
+
+↓
+
+Topic (log dạng hàng đợi tuần tự)
+
+↓
+
+Consumer
+```
+
+Kafka không phải Queue thuần túy (vì dữ liệu vẫn được giữ lại sau khi đọc), nhưng mô hình xử lý vẫn dựa trên thứ tự tuần tự.
+
+---
+
+## BFS
+
+Breadth First Search
+
+```
+Queue
+
+A
+
+↓
+
+B C
+
+↓
+
+D E F
+```
+
+BFS bắt buộc dùng Queue.
+
+---
+
+## Event Loop
+
+JavaScript
+
+```
+Event Queue
+
+↓
+
+Event Loop
+
+↓
+
+Execute
+```
+
+---
+
+# Các ngôn ngữ hiện thực Queue như thế nào?
+
+Lưu ý: nhiều ngôn ngữ **không có lớp `Queue` cụ thể để lưu dữ liệu**, mà cung cấp interface và nhiều implementation khác nhau.
+
+|Ngôn ngữ|Thư viện khuyến nghị|Hiện thực bên dưới|
+|---|---|---|
+|Java|`ArrayDeque`|Circular array|
+|Java|`LinkedList`|Doubly Linked List|
+|Java|`PriorityQueue`|Binary Heap (không FIFO)|
+|C#|`Queue<T>`|Circular array|
+|C++|`std::queue`|Adapter (mặc định dùng `std::deque`)|
+|C++|`std::deque`|Khối bộ nhớ liên tiếp (segmented array)|
+|Python|`collections.deque`|Danh sách liên kết các block (không phải linked list đơn thuần)|
+|Go|Không có trong standard library|Thường dùng slice hoặc tự cài đặt ring buffer|
+|Rust|`VecDeque`|Circular buffer|
+|JavaScript|Không có Queue chuẩn|Thường dùng `Array` (không tối ưu với `shift()`) hoặc thư viện|
+|PHP|`SplQueue`|Doubly Linked List (`SplDoublyLinkedList`)|
+
+**Lưu ý quan trọng về Java:**
+
+- `Queue` là **interface**.
+    
+- `ArrayDeque` thường là lựa chọn mặc định nhờ hiệu năng tốt hơn `LinkedList` trong đa số trường hợp.
+    
+- Không nên dùng `ArrayList` làm Queue vì thao tác xóa đầu (`remove(0)`) có độ phức tạp **O(n)** do phải dịch chuyển toàn bộ phần tử còn lại.
+    
+
+---
+
+# Mối liên hệ giữa cấu trúc dữ liệu → bộ nhớ → độ phức tạp → hiệu năng → trade-off
+
+Đây là chuỗi tư duy quan trọng trong thiết kế hệ thống:
+
+```
+Yêu cầu bài toán
+        │
+        ▼
+Chọn Data Structure
+        │
+        ▼
+Cách tổ chức dữ liệu trong bộ nhớ
+(Array, Linked List, Circular Buffer...)
+        │
+        ▼
+Chi phí thao tác
+(Big-O)
+        │
+        ▼
+Hiệu năng thực tế
+(Cache locality, số lần cấp phát bộ nhớ,
+CPU cache miss, branch prediction...)
+        │
+        ▼
+Trade-off
+```
+
+Ví dụ với Queue:
+
+### Queue bằng Circular Array
+
+```
+Memory
+
++----+----+----+----+----+
+| A  | B  | C  | D  | E  |
++----+----+----+----+----+
+```
+
+- Bộ nhớ gần nhau (contiguous).
+    
+- Cache locality tốt.
+    
+- Ít cấp phát bộ nhớ.
+    
+- `enqueue`/`dequeue` O(1).
+    
+- Đôi khi phải resize (O(n), nhưng hiếm nên chi phí trung bình vẫn O(1) amortized).
+    
+
+=> Phù hợp cho hầu hết ứng dụng tổng quát.
+
+### Queue bằng Linked List
+
+```
+A --> B --> C --> D
+```
+
+- Mỗi node cấp phát riêng.
+    
+- Bộ nhớ phân tán.
+    
+- Cache locality kém hơn.
+    
+- Không cần resize.
+    
+- `enqueue`/`dequeue` luôn O(1).
+    
+
+=> Phù hợp khi kích thước thay đổi mạnh hoặc cần chèn/xóa node mà không muốn sao chép dữ liệu.
+
+---
+
+# Tổng kết
+
+| Khía cạnh          | Queue                                                                                     |
+| ------------------ | ----------------------------------------------------------------------------------------- |
+| Nguyên tắc         | FIFO (First In, First Out)                                                                |
+| Thao tác chính     | `enqueue`, `dequeue`, `peek`                                                              |
+| Hiện thực phổ biến | Circular Array, Linked List                                                               |
+| `enqueue`          | O(1) (amortized với mảng động)                                                            |
+| `dequeue`          | O(1)                                                                                      |
+| `peek`             | O(1)                                                                                      |
+| `contains`         | O(n)                                                                                      |
+| Ưu điểm            | FIFO tự nhiên, xử lý luồng công việc, producer-consumer, scheduler                        |
+| Nhược điểm         | Không hỗ trợ tìm kiếm hay truy cập ngẫu nhiên theo API, không phù hợp cho chèn/xóa ở giữa |
+| Ứng dụng           | BFS, scheduler, message queue, web server, event loop, networking, job processing         |
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////
+
 ## 1. Problems & Use Case (Vấn đề & Nhu cầu thực tế)
 
 - **Bối cảnh & Khởi nguồn phát sinh:** Trong kiến trúc monolithic truyền thống hoặc các luồng xử lý đồng bộ (Synchronous), khi Client gửi một Request, Server phải thực hiện toàn bộ các tác vụ liên quan từ tính toán, ghi DB cho đến gọi Third-party service trước khi trả về Response. Nếu hệ thống gặp tình trạng traffic tăng đột biến (Spike load), Server sẽ cạn kiệt tài nguyên (CPU, RAM, Connection Pool) do phải giữ kết nối chờ xử lý. Nguyên nhân sâu xa là sự phụ thuộc chặt chẽ (Tight Coupling) về mặt thời gian và hiệu năng giữa luồng nhận Request và luồng xử lý nghiệp vụ, dẫn đến việc thắt nút cổ chai tại các tác vụ tốn tài nguyên hoặc có độ trễ cao (I/O bound, CPU bound). Ngoài ra, nếu không có queue hệ thống thường gặp các vấn đề:

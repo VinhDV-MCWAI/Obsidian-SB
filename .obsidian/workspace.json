@@ -8,31 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "59b5a3b8cbdb7d16",
+            "id": "04e4a7272225bc8d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Job/Vấn Đề Cá Nhân trong Câu Truyện Tuyển Dụng.md",
+                "file": "Technical/Concepts/Linked List.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Vấn Đề Cá Nhân trong Câu Truyện Tuyển Dụng"
-            }
-          },
-          {
-            "id": "79a7bbbbb4360a2d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Job/Vấn đề tuyển dụng phía đối tác.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Vấn đề tuyển dụng phía đối tác"
+              "title": "Linked List"
             }
           }
         ]
@@ -42,49 +28,49 @@
         "type": "tabs",
         "children": [
           {
-            "id": "3f03efcf3ec67ece",
+            "id": "79a7bbbbb4360a2d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Untitled.md",
+                "file": "ưu tiên.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Untitled"
+              "title": "ưu tiên"
             }
           },
           {
-            "id": "668246cc2a4dc198",
+            "id": "fee5d9d667c52510",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Job/Vấn đề tuyển dụng phía đối tác.md",
+                "file": "Technical/Issues/Lộ Trình Phát Triển.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Vấn đề tuyển dụng phía đối tác"
+              "title": "Lộ Trình Phát Triển"
             }
           },
           {
-            "id": "cccf189a6664e6ff",
+            "id": "fb28f35cec82c954",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Job/Tiêu Chí Phỏng Vấn.md",
-                "mode": "source",
+                "file": "Technical/Concepts/Linked List.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Tiêu Chí Phỏng Vấn"
+              "title": "Linked List"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -141,8 +127,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "fd1b2d3a73090e70",
@@ -247,21 +232,35 @@
       "bases:Create new base": false
     }
   },
-  "active": "59b5a3b8cbdb7d16",
+  "active": "fb28f35cec82c954",
   "lastOpenFiles": [
-    "Job/Vấn đề tuyển dụng phía đối tác.md",
-    "().md",
-    "Job/Tiêu Chí Phỏng Vấn.md",
-    "Untitled.md",
-    "Job/Vấn Đề Cá Nhân trong Câu Truyện Tuyển Dụng.md",
-    "Memories Of Life/Docs_History/Chuẩn bị đón bà về.md",
-    "Job/Portfolio Architect.md",
-    "README.md",
-    "Technical/Aggregates/Search.md",
-    "Technical/Aggregates/minio.md",
-    "Welcome.md",
+    "Technical/Issues/Lộ Trình Phát Triển.md",
+    "Technical/Concepts/Linked List.md",
+    "Technical/Concepts/Array.md",
+    "Technical/Computer History/Untitled.md",
+    "Technical/Computer History/Chương 20 — Hệ điều hành, Process, Thread, Scheduling, Memory Protection và vì sao nhiều chương trình có thể chạy cùng lúc.md",
+    "Technical/Computer History/Chương 19 — Ngôn ngữ lập trình, compiler, interpreter, AST, runtime và vì sao code chạy được.md",
+    "Technical/Computer History/Chương 18 — Mạng máy tính, packet, header, checksum, TCP&IP, DNS, HTTP và HTTPS.md",
+    "Technical/Computer History/Chương 17 — Unix time, timestamp, Y2K, năm 2038, leap year và leap second.md",
+    "Technical/Computer History/Chương 16 — Database, index, B-tree, buffer pool và vì sao không thể chỉ lưu file thẳng.md",
+    "Technical/Computer History/Chương 15 — File system, sector, block, page, SSD, HDD và cách dữ liệu thật sự nằm trên đĩa.md",
+    "Technical/Computer History/Chương 14 — ASCII, Unicode, UTF-8 và vì sao văn bản là một bài toán khó.md",
+    "Technical/Computer History/Chương 13 — Floating Point, IEEE 754 và vì sao 0.1 + 0.2 != 0.3.md",
+    "Technical/Computer History/Chương 12 — Biểu diễn số unsigned, signed, two’s complement, overflow và underflow.md",
+    "Technical/Computer History/Chương 11 — RAM, địa chỉ bộ nhớ, bit, byte, word và thứ tự byte.md",
+    "Technical/Computer History/Chương 10 — CPU thực sự biết tính toán như thế nào.md",
+    "Technical/Computer History/Chương 9 — Chu kỳ Fetch → Decode → Execute Nhịp tim của CPU.md",
+    "Technical/Computer History/Chương 8 — Kiến trúc Von Neumann Khi chương trình trở thành dữ liệu.md",
+    "Technical/Computer History/Chương 7 — Mạch tích hợp (Integrated Circuit) Khi bài toán không còn là transistor, mà là hàng triệu transistor.md",
+    "Technical/Computer History/Chương 6 — Transistor Phát minh thay đổi nền văn minh số.md",
+    "Technical/Computer History/Chương 5 — Đèn điện tử Khi máy tính không còn phải chuyển động.md",
+    "Technical/Computer History/Chương 4 — Cỗ máy biết tính toán đầu tiên được tạo ra như thế nào.md",
+    "Technical/Computer History/Chương 3 — Làm thế nào để máy suy nghĩ.md",
+    "Technical/Computer History/Chương 2 — Máy tính lưu trữ thông tin như thế nào.md",
+    "Technical/Computer History/Chương 1 — Thông tin Khởi nguồn của Khoa học Máy tính.md",
+    "Ý tưởng app.md",
+    "Technical/Computer History",
     "prompt.md",
-    "Testing/Aggregates/Testing.md",
     "Testing/Issues",
     "Testing/Concepts",
     "Testing/Aggregates",
@@ -269,22 +268,8 @@
     "Memories Of Life",
     "Technical",
     "Job",
-    "Technical/Concepts/Unit & integrate test case.md",
-    "Technical/Aggregates/Detail Design.md",
-    "Memories Of Life/Docs_History/6-5-2026 bị cho nghỉ việc.md",
-    "Memories Of Life/Docs_History/Ở TRỌ 42 Lương Ngọc Quyến, Gò Vấp, TP HCM.md",
-    "Memories Of Life/Docs_History/6-2024 tự xin nghỉ việc.md",
-    "Memories Of Life/Docs_History/21-10-2025 Một ngày đau bụng.md",
     "Memories Of Life/Docs_History",
-    "Technical/Aggregates/App & Request Life-Cycle.md",
-    "Technical/Concepts/Signleton.md",
-    "Technical/Concepts/Heap.md",
-    "Technical/Concepts/Stack.md",
-    "Technical/Concepts/Queue.md",
-    "Technical/Concepts/ORM.md",
-    "Technical/Concepts/Migrate Engine.md",
     "Untitled.base",
-    "Untitled.canvas",
-    "Technical/Issues"
+    "Untitled.canvas"
   ]
 }

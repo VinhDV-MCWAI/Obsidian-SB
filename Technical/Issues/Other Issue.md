@@ -3,29 +3,6 @@ hiệu quả với tấn công phân tán (Distributed Brute Force) từ nhiều
 -> Triển khai rate limiting đa tầng bằng redis: Level 1 (Targeted Defense): Giới hạn theo User ID + IP. Level 2 (Distributed Defense): Giới hạn theo User ID (Username) duy nhất
 - Dư thừa token: gửi access và refresh token trong header mỗi requetst là dư thừa, rủi do bảo mật. Nên gửi chuyên biệt
 - Thiếu cơ chế thu hồi đồng loạt của user trên nhiều thiết bị, thu hồi token trên 1 thiết bị
-| Bước | Mục tiêu & Công cụ | Cách bạn vượt qua |
-
-| --- | --- | --- |
-
-| **B1: Quét CV (AI Screen)** | ATS sử dụng AI để lọc từ khóa và sự tương quan kinh nghiệm. | Tối ưu hóa từ khóa (System Design, DevOps, Laravel, Python). |
-
-| **B2: Bài Test Kỹ Thuật** | Code test trực tuyến hoặc bài tập về nhà (Home Assignment). | Sử dụng tư duy kiến trúc. Đừng chỉ nộp code chạy được, hãy nộp code có **Design Pattern** và **Unit Test**. |
-
-| **B3: Technical Deep-Dive** | Phỏng vấn trực tiếp về kiến thức chuyên sâu và xử lý tình huống. | **Đây là điểm yếu của bạn.** Hãy chuyển hướng từ "How" (cú pháp) sang "Why" (tại sao chọn công nghệ đó). |
-
-| **B4: System Design** | Thiết kế hệ thống quy mô lớn (High Availability, Scalability). | Tận dụng kinh nghiệm từ dự án "Second Memory" và "ERP" để nói về luồng dữ liệu. |
-
-| **B5: Văn hóa & Deal lương** | Đánh giá sự phù hợp và thương lượng quyền lợi. | Thể hiện tư duy của một Technical Leader tương lai. |
-
-  
-  
-
-- Nhà tuyển dụng sẽ rà soát nhanh cv kiểm tra bố cục, kỹ năng có phù hợp yêu cầu không nên đưa thông tin này nên đầu, trình bày rõ ràng
-
-- CV tập trung vào các kỹ năng chính, không đưa các kỹ năng chưa chắc chắn vào. Đưa dự án thực tế không đưa thông tin nhảm có thể cân nhắc dữ lại thông tin dự án cá nhân vì nó nhấn mạnh vào kỹ năng.
-
-- HR sẽ thông tin trao đổi, cần chuẩn bị các thông tin nguyện vọng như lương phúc lợi, nghỉ lễ,... dự án, yêu cầu công việc,... để kiểm tra độ khớp trước khi quyết định phỏng vấn
-
 ---------------------------------
 
   
@@ -39,21 +16,9 @@ AI Integration: Không chỉ là dùng AI để code, mà là biết tích hợp
   
 
 Tôi sử dụng Python/FastAPI cho dự án này vì tính hiệu suất của nó. Nhờ tư duy hệ thống và sự hỗ trợ của AI, tôi đã triển khai nhanh chóng cấu trúc dữ liệu và logic nghiệp vụ. Tuy nhiên, thế mạnh cốt lõi của tôi vẫn là thiết kế hệ thống và tối ưu hóa backend, thứ mà tôi có thể áp dụng linh hoạt trên bất kỳ ngôn ngữ nào
-
-  
-
-Thị trường năm 2026 không còn chỉ tìm người biết viết code, mà tìm người biết thiết kế giải pháp và tối ưu vận hành.
-
-  
   
 
 Build proof: Hoàn thiện Second Memory, deploy demo, thêm README tốt. Contribute nhỏ open-source hoặc blog về một project.
-
-  
-
-Interview prep: Practice explain projects (what you did vs team/AI). Học sâu fundamentals (Laravel internals, DB indexing, auth flows).
-
-Mindset: Bạn có nền tảng thực chiến tốt + adaptability (AI + multiple stacks) → rất phù hợp thị trường. Đừng overclaim, hãy nhấn “quick learner & practical problem-solver”.
 
   
 
@@ -82,28 +47,6 @@ hiểu giao dịch DB (transaction, concurrency, idempotent) và tối ưu hoá 
 
 - Nếu có điều kiện interview nhiều nhất có thể để: tăng phản xạ, cách diễn đạt, hiểu market, trai lì tự tin hơn, deal thỏa thuận ổn hơn.
 
-  
-  
-
-********************
-
-- khung đánh giá và thang chấm điểm 100
-
-  + Core backend & db (30đ): Tối ưu và thiết kế
-
-  + System architect & security (30đ): Cấu hình, hệ thống
-
-  + Problem solving & logic (30đ): Cách xử lý sự cố
-
-  + Community & honesty (30đ): trung thực, khả năng giải thích, liên kết, nhận thức giới hạn
-
-  
-
-- Thử nghiệm int 3 vòng
-
-  
-  
-  
 
 *****
 
@@ -315,10 +258,3 @@ hiểu giao dịch DB (transaction, concurrency, idempotent) và tối ưu hoá 
   
 
 - Cách kiểm tra: Xác định query, chạy nó, theo dõi tiến trình, phân tích chiến lược thực thi. Đánh giá các chỉ số. Tối ưu chiến lược thực thi lại.
-
-  
-  
-
-- Cách tổ chức phân chia thực hiện ghi chép thông tin: Tạo một khung xử lý phân tích các công nghệ giải pháp, tất cả sẽ thực hiện theo các tiêu chí trên khung xử lý đó. Phân chia thành 1 loại hình concept và implement, concept đi phân tích cụ thể từng phần, implement sẽ chỉ đề cập đến concept.
-
-- Công nghệ thay đổi liên tục, tập trung phần giá trị nhất: problem -> concept -> trade off để khai thác được lâu nhất, đáng giá nhất
