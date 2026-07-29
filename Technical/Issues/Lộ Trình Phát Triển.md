@@ -65,13 +65,13 @@ Hiểu cách tổ chức dữ liệu để truy xuất và xử lý hiệu quả
 
 - [x] [[Array]]
     
-- [ ] [[Linked List]]
+- [x] [[Linked List]]
     
 - [ ] [[Stack]]
     
 - [ ] [[Queue]]
     
-- [ ] [[Tree]]
+- [x] [[Tree]]
     
 - [ ] [[Hash table]]
     

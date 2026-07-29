@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Technical/Concepts/Linked List.md",
+                "file": "Technical/Concepts/Tree.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Linked List"
+              "title": "Tree"
             }
           }
         ]
@@ -56,21 +56,21 @@
             }
           },
           {
-            "id": "fb28f35cec82c954",
+            "id": "830a08e4ab8742cf",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Technical/Concepts/Linked List.md",
-                "mode": "preview",
+                "file": "Technical/Concepts/Tree.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Linked List"
+              "title": "Tree"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -127,7 +127,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "fd1b2d3a73090e70",
@@ -232,9 +233,13 @@
       "bases:Create new base": false
     }
   },
-  "active": "fb28f35cec82c954",
+  "active": "fee5d9d667c52510",
   "lastOpenFiles": [
+    "Technical/Concepts/Tree.md",
     "Technical/Issues/Lộ Trình Phát Triển.md",
+    "ưu tiên.md",
+    "Technical/Concepts/Graph.md",
+    "Technical/Concepts/Stack.md",
     "Technical/Concepts/Linked List.md",
     "Technical/Concepts/Array.md",
     "Technical/Computer History/Untitled.md",
@@ -256,11 +261,7 @@
     "Technical/Computer History/Chương 5 — Đèn điện tử Khi máy tính không còn phải chuyển động.md",
     "Technical/Computer History/Chương 4 — Cỗ máy biết tính toán đầu tiên được tạo ra như thế nào.md",
     "Technical/Computer History/Chương 3 — Làm thế nào để máy suy nghĩ.md",
-    "Technical/Computer History/Chương 2 — Máy tính lưu trữ thông tin như thế nào.md",
-    "Technical/Computer History/Chương 1 — Thông tin Khởi nguồn của Khoa học Máy tính.md",
-    "Ý tưởng app.md",
     "Technical/Computer History",
-    "prompt.md",
     "Testing/Issues",
     "Testing/Concepts",
     "Testing/Aggregates",
