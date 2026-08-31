@@ -1,285 +1,127 @@
 # MinIO - Object Storage Setup Guide
 
-  
-
 ## Khởi tạo & Cấu hình
-
-  
-
 MinIO là object storage tương thích S3, được sử dụng để quản lý toàn bộ media (hình ảnh, video, tài liệu) trong hệ thống. Việc khởi tạo và cấu hình được thực hiện ngay khi build môi trường.
-
-  
 
 Khi sử dụng MinIO để quản lý dữ liệu media, bước đầu tiên là khởi tạo, thực hiện khi build env:
 
-  
-
 ### Cách Scan và Clear
-
-  
-
 MinIO thực hiện quét định kỳ (mặc định 24 giờ) trước khi xóa dữ liệu. Do đó:
-
 - Các file đã hết hạn nhưng chưa đến chu trình quét sẽ vẫn tồn tại
-
 - Với phiên bản MaxIO mới, quét diễn ra liên tục nhưng tùy theo mức độ ưu tiên, số lượng object và tải hệ thống
-
 - Thời gian xóa thực tế tùy thuộc vào hiệu suất hệ thống
-
-  
 
 ### Tạo các Bucket
 
-  
-
 Tạo 2 bucket để lưu trữ dữ liệu:
-
-  
-
-#### media-official
-
-Chứa dữ liệu riêng tư như thông tin cá nhân, tài liệu nhạy cảm, v.v.
-
-  
-
-**Cấu hình:**
-
-- Đánh dấu versioning để backup
-
-- Setting rule: cho phép tồn tại file trong 30 ngày để rollback, sau 30 ngày → hard delete
-
-- Setting rule để dọn delete marker dư thừa
-
-- Setting rule để dọn các multipart upload thừa chưa hoàn tất (thời gian 24H)
-
-- Setting rule Expire Non-current Versions: chỉ giữ lại 3-5 phiên bản gần nhất, xóa vĩnh viễn các phiên bản cũ
-
-- Nếu muốn khôi phục, có thể show version trên UI MinIO hoặc dùng lệnh
-
-  
-
-#### media-temp
-
-Chứa dữ liệu tạm thời với clear tự động theo ngày.
-
-  
-
-**Cấu hình:**
-
-- Bucket lưu trữ tạm thời với lifecycle độc lập, xóa dữ liệu tự động mỗi ngày
-
-- Thường vài tiếng sẽ quét object có modified_time > 1 ngày → xóa object
-
-- Không versioning để tiết kiệm chi phí lưu trữ (không tạo delete marker)
-
-- Tự động clear dữ liệu mà không tồn rác
-
-- Setting rule để dọn các multipart upload thừa chưa hoàn tất (thời gian 24H)
-
-  
++ Media-official: Chứa dữ liệu riêng tư như thông tin cá nhân, tài liệu nhạy cảm, v.v.
+	+ Cấu hình:
+		+ Đánh dấu versioning để backup
+		+ Setting rule: cho phép tồn tại file trong 30 ngày để rollback, sau 30 ngày → hard delete
+		- Setting rule để dọn delete marker dư thừa
+		- Setting rule để dọn các multipart upload thừa chưa hoàn tất (thời gian 24H)
+		- Setting rule Expire Non-current Versions: chỉ giữ lại 3-5 phiên bản gần nhất, xóa vĩnh viễn các phiên bản cũ
+		- Nếu muốn khôi phục, có thể show version trên UI MinIO hoặc dùng lệnh
+- Media-temp: Chứa dữ liệu tạm thời với clear tự động theo ngày.
+	- Cấu hình:
+		- Bucket lưu trữ tạm thời với lifecycle độc lập, xóa dữ liệu tự động mỗi ngày
+		- Thường vài tiếng sẽ quét object có modified_time > 1 ngày → xóa object
+		- Không versioning để tiết kiệm chi phí lưu trữ (không tạo delete marker)
+		- Tự động clear dữ liệu mà không tồn rác
+		- Setting rule để dọn các multipart upload thừa chưa hoàn tất (thời gian 24H)
 
 ### Format Lưu trữ Media
 
-  
-
 Lưu trữ media sẽ theo format: `{workspace}/{year}/{month}/{uuid}.{extension}`
-
-  
-
 **Ví dụ:**
-
 - `media-official/2026/01/16/abc.jpg`
-
 - Upload media temp sẽ theo format: `bucket/{uuid}.{extension}`
-
-  
 
 ### Các Lưu ý Quan trọng
 
-  
-
 **Cấu trúc thư mục và Prefix:**
-
 - MinIO sử dụng dấu `/` để mô phỏng cấu trúc thư mục
-
 - Nếu dồn quá nhiều đối tượng vào 1 prefix duy nhất sẽ gây áp lực truy vấn list và head
-
 - Khuyến nghị: giữ < 10.000 đối tượng/prefix
-
 - Có thể chia thành nhiều prefix theo năm/tháng/ngày hoặc theo hash của object ID
 
-  
-
 **Tiering và Lifecycle:**
-
 - Setting lifecycle tự động move media xuống tier lưu trữ thấp hơn
-
 - Dành cho media ít được sử dụng, lâu không sử dụng, hoặc tần xuất truy cập ít
-
 - Di chuyển từ SSD → HDD hoặc cloud rẻ để tối ưu chi phí lưu trữ
-
 - Toàn bộ giao tiếp với dữ liệu đều thông qua giao thức HTTP(S) RESTful
-
-  
 
 ### Multipart Upload
 
-  
-
 Khi upload file nặng:
-
 - File được chia thành nhiều part nhỏ để upload
-
 - Khác với upload file nhẹ upload one-shot 1 lần duy nhất
-
 - **Quy trình:**
-
   1. Khởi tạo object (khu vực lưu trữ)
-
   2. Upload các part vào khu vực đó
-
   3. Request confirm kết thúc (complete upload)
-
   4. Storage sẽ tự check, merge các part thành object và đánh dấu hoàn thành/thất bại
 
-  
-
 **Mặc định:**
-
 - Mọi multipart upload bị hủy (không hoàn tất) sẽ tự động bị xóa sau 24H
-
 - Tần xuất quét xóa mặc định là 6H
-
 - Nếu không thay đổi thiết lập thì việc này tự động diễn ra
-
-  
 
 ### Backup và Soft Delete
 
-  
-
 Cơ chế backup object xóa mềm:
-
 - Cho phép khôi phục dữ liệu khi cần trong khoảng thời gian ngắn
-
 - Không cần thiết phải lưu trữ dài hạn (ảnh hưởng dung lượng và hiệu xuất)
-
 - **Setting rule:** Tự động xóa vĩnh viễn object sau X ngày nếu không khôi phục
-
 - Trước đó X ngày cho phép rollback
-
 - Đảm bảo quản lý, lưu trữ dữ liệu tối ưu
-
-  
 
 ### Versioning
 
-  
-
-Mục đích: bảo vệ dữ liệu và đảm bảo tính toàn vẹn của dữ liệu
-
-  
-
+Mục đích: bảo vệ dữ liệu và đảm bảo tính toàn vẹn của dữ liệu  
 #### Tác dụng
-
-  
-
 1. **Chống ghi đè/xóa nhầm:**
-
    - Nếu không có version, dữ liệu cũ sẽ bị xóa vĩnh viễn
-
    - Với versioning, dữ liệu cũ vẫn được giữ lại
-
-  
-
-2. **Chống ransomware:**
-
+1. **Chống ransomware:**
    - Nếu hệ thống bị mã hóa, chỉ dữ liệu phiên bản mới bị ảnh hưởng
-
    - Các phiên bản cũ vẫn an toàn, có thể khôi phục được
 
-  
-
 #### Cơ chế đánh dấu Version
-
-  
-
 - Mỗi khi object thay đổi, tạo version mới và đánh dấu làm phiên bản hiện tại
-
 - Khi xóa, chèn delete marker lên trên cùng (soft delete)
-
 - Object không được xóa hoàn toàn cho đến khi chỉ định rõ phiên bản
-
-  
-
 #### Cơ Chế Backup
-
-  
-
 Có 3 loại:
-
-  
-
-1. **Đồng bộ hóa các thay đổi:**
-
-   - Sao chép dữ liệu các phiên bản mới nhất của object
-
-   - Mỗi object chỉ lấy một phiên bản mới nhất
-
-  
-
-2. **Khôi phục theo thời gian:**
-
-   - Sao chép tất cả dữ liệu bao gồm tất cả các phiên bản của từng object
-
-   - Vì mỗi version có timestamp tạo, hệ thống cho phép khôi phục dữ liệu tại thời điểm trong quá khứ
-
-   - Lấy dữ liệu có timestamp tạo ≤ thời điểm yêu cầu khôi phục
-
-  
-
-3. **Khôi phục theo từng object:**
-
-   - Khôi phục dữ liệu cho từng object riêng lẻ
-
-   - Xử lý các sự cố nhỏ chỉ ảnh hưởng object đó, không ảnh hưởng object khác
-
-  
++ **Đồng bộ hóa các thay đổi:**
+	+ Sao chép dữ liệu các phiên bản mới nhất của object
+	+ Mỗi object chỉ lấy một phiên bản mới nhất
++ **Khôi phục theo thời gian:**
+	+ Sao chép tất cả dữ liệu bao gồm tất cả các phiên bản của từng object
+	+ Vì mỗi version có timestamp tạo, hệ thống cho phép khôi phục dữ liệu tại thời điểm trong quá khứ
+	+ Lấy dữ liệu có timestamp tạo ≤ thời điểm yêu cầu khôi phục
++ **Khôi phục theo từng object:**
+	+ Khôi phục dữ liệu cho từng object riêng lẻ
+	+ Xử lý các sự cố nhỏ chỉ ảnh hưởng object đó, không ảnh hưởng object khác
 
 #### Lưu ý về Dọn dẹp Version
 
-  
-
 Versioning rất tuyệt vời nhưng gây ra vấn đề khi object thay đổi nhiều lần:
-
 - Sao chép object ra số lượng tương ứng
-
 - Gây áp lực dung lượng lưu trữ và hiệu xuất sử dụng
 
-  
 
 **Setting rule dọn dẹp:**
-
 - Tự động xóa các version cũ (không phải version hiện tại) sau 30 ngày
-
 - Chỉ dữ lại 5 version gần nhất (setting phạm vi bucket, áp dụng cho tất cả object)
-
 - Tự động xóa các delete marker thừa trong khoảng thời gian nhất định
-
-  
 
 #### Delete Marker và Xóa Đối tượng
 
-  
-
 Khi bucket bật versioning:
-
 - Mỗi khi xóa object chỉ là soft delete
-
 - Tạo delete marker để đánh dấu object đó
-
 - Client không nhìn thấy object đã xóa, nhưng vẫn lưu trữ ở disk
-
   
 
 **Chức năng:**

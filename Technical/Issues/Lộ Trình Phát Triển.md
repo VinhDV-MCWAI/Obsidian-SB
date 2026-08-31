@@ -67,15 +67,15 @@ Hiểu cách tổ chức dữ liệu để truy xuất và xử lý hiệu quả
     
 - [x] [[Linked List]]
     
-- [ ] [[Stack]]
+- [x] [[Stack]]
     
-- [ ] [[Queue]]
+- [x] [[Queue]]
     
 - [x] [[Tree]]
     
-- [ ] [[Hash table]]
+- [x] [[Hash table]]
     
-- [ ] [[Graph]]
+- [x] [[Graph]]
     
 - [ ] ,....
     
@@ -83,19 +83,19 @@ Hiểu cách tổ chức dữ liệu để truy xuất và xử lý hiệu quả
 Operations
 Ý nghĩa: Các thao tác trên data structure 
 
-- [ ] Push
+- [x] Push
     
-- [ ] Pop
+- [x] Pop
     
-- [ ] Peek
+- [x] Peek
     
-- [ ] Enqueue
+- [x] Enqueue
     
-- [ ] Dequeue
+- [x] Dequeue
     
-- [ ] Insert
+- [x] Insert
     
-- [ ] Delete
+- [x] Delete
     
 - [ ] ,...
     
@@ -105,19 +105,19 @@ Operations
 ### Design Concepts
 Ý nghĩa: Giải thích cách Data Structure hoạt động và khi nào nên dùng
 
-- [ ] FIFO
+- [x] FIFO
     
-- [ ] LIFO
+- [x] LIFO
     
-- [ ] Time Complexity
+- [x] Time Complexity
     
-- [ ] Memory
+- [x] Memory
     
-- [ ] Cache
+- [x] Cache
     
-- [ ] Trade-off
+- [x] Trade-off
     
-- [ ] Performance
+- [x] Performance
     
 - [ ] ,...
     
@@ -130,16 +130,16 @@ Là cách giải quyết bài toán, biết trade-off giữa thời gian và b�
 
 Sorting
 
-- [ ] Merge Sort
+- [x] Merge Sort
     
-- [ ] Quick Sort
+- [x] Quick Sort
     
-- [ ] Heap Sort
+- [x] Heap Sort
     
 
 Searching
 
-- [ ] Binary Search
+- [x] Binary Search
     
 
 Graph
@@ -163,7 +163,7 @@ Two Pointer
 
 ## 3. Complexity
 
-- [ ] Big O
+- [x] Big O
 
 - [ ] Big Theta
 
@@ -223,11 +223,11 @@ Hiểu code chạy như thế nào. Hệ điều hành hoạt động như thế
 
 ## Memory
 
-- [ ] RAM
+- [x] RAM
 
 - [ ] Virtual Memory
 
-- [ ] Paging
+- [x] Paging
 
 - [ ] Segmentation
 

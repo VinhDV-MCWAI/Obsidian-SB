@@ -881,6 +881,14 @@ Không search nhanh.
 
 ---
 
+# 12. Các vấn đề cần lưu tâm khi sử dụng
+
+- Tránh rò rỉ bộ nhớ vì phải lưu trữ quá nhiều thao tác, cần đặt giới hạn thao tác. vd: 50
+- Khi sử dụng người dùng có thể liên tục undo | redo thao tác, từ đó gây ra chuyện phân nhánh lịch sử (lịch sử thao tác trước đó, lịch sử thao tác mới có tác động bởi undo | redo). Khi người dùng thực hiện undo | redo >= 2 lần, sau đó thực hiện thao tác mới. Thì cần refresh lại lịch sử để cập nhật lại toàn bộ lịch sử theo hướng mới nhất.
+- Hệ thống nhiều người dùng cùng sửa trực tuyến: tham khảo thuật toán của gg thực hiện chuyện này để đồng bộ trạng thái
+- Đây là một phương án hoặc coi nó như phương pháp để xử lý các vấn đề có trạng thái đó để tham khảo. Thực tế sẽ thực hiện thủ công, tự tùy chỉnh theo yêu cầu.
+
+---
 # Góc nhìn của một kỹ sư Backend
 
 Khi phân tích một cấu trúc dữ liệu, nên luôn đi theo chuỗi tư duy sau:

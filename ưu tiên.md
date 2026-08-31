@@ -501,6 +501,9 @@ Nếu tôi phải xây dựng chiến lược trong **1 tháng**, tôi sẽ ưu 
 6. Ôn lại toàn bộ dự án bạn từng làm để có thể giải thích các quyết định kỹ thuật và bài học rút ra.
     
 
+dev, php, web dev, fullstack
+
+heap, dependence injection, redis pub/sub, db master slaver,
 
 Tôi đang tìm hiểu về data structure của array, hãy giúp tôi trả lời các câu hỏi:
 
