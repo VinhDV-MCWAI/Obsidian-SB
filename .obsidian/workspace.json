@@ -20,8 +20,37 @@
               "icon": "lucide-file",
               "title": "README"
             }
+          },
+          {
+            "id": "b373b8b527c2e928",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "lifecycle request on internet.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "lifecycle request on internet"
+            }
+          },
+          {
+            "id": "be3c87d310c4a6ec",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Untitled.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Untitled"
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       },
       {
         "id": "90aa335687bc3ba1",
@@ -47,7 +76,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Untitled.md",
+                "file": "Memories Of Life/Hưng Yên/Untitled.md",
                 "mode": "source",
                 "source": false
               },
@@ -68,9 +97,23 @@
               "icon": "lucide-file",
               "title": "Lộ Trình Phát Triển"
             }
+          },
+          {
+            "id": "791e296b31540198",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "lifecycle request on internet.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "lifecycle request on internet"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -234,11 +277,15 @@
       "bases:Create new base": false
     }
   },
-  "active": "37c0b22df6d3d001",
+  "active": "be3c87d310c4a6ec",
   "lastOpenFiles": [
-    "ưu tiên.md",
-    "Untitled.md",
     "README.md",
+    "Page Blocking.md",
+    "lifecycle request on internet.md",
+    "Memories Of Life/Hưng Yên/Untitled.md",
+    "Untitled.md",
+    "Memories Of Life/Hưng Yên",
+    "ưu tiên.md",
     "Technical/Aggregates/App & Request Life-Cycle.md",
     "Job/Vấn đề tuyển dụng phía đối tác.md",
     "Job/Vấn Đề Cá Nhân trong Câu Truyện Tuyển Dụng.md",
@@ -259,9 +306,6 @@
     "Technical/Issues/Hệ thống xử lý bị lỗi mất dữ liệu thì xử lý thế nào.md",
     "Technical/Issues/Hệ thống có lượng truy cập tăng đột biến xử lý thể nào.md",
     "Technical/Issues/Có trường hợp nào một request có dung lượng lớn làm hỏng hư hại hệ thống hay không, nếu có xử lý thế nào.md",
-    "Technical/Issues/Có nên kiểm tra request trước khi xử lý, nếu request size cực lớn thì xử lý thế nào.md",
-    "Technical/Issues/Các Vấn Đề Chung Khi Nói Về Hệ Thống Có Triệu User.md",
-    "Technical/Issues/Bạn sẽ xử lý như thế nào khi một API bên thứ ba trả về kết quả không mong muốn.md",
     "Technical/Computer History",
     "Testing/Issues",
     "Testing/Concepts",
@@ -271,7 +315,6 @@
     "Technical",
     "Job",
     "Memories Of Life/Docs_History",
-    "Untitled.base",
     "Untitled.canvas"
   ]
 }
