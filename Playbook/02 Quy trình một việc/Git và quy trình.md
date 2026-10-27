@@ -14,7 +14,7 @@ Trước: [[Review code - quy trình]] · Sau: [[Phát hành và quay lui]].
 
 - Nhánh việc sống ngắn, một việc một nhánh, tách từ nhánh tích hợp.
 - Nhánh dài hạn (chính, tích hợp, môi trường) **chỉ nhận thay đổi qua pull request**: không push thẳng, không force push.
-- Conventional Commits; mỗi commit một mục đích, build được; thân commit nói **vì sao**.
+- Conventional Commits **tiếng Anh** (cả tiêu đề, kể cả commit chỉ đổi tài liệu); mỗi commit một mục đích, build được; thân commit nói **vì sao** (nhóm cho phép thân tiếng khác thì theo nhóm).
 - Pull request nhỏ (< ~400 dòng), tự review trước, CI xanh trước khi nhờ duyệt.
 - **AI không commit, không push, không mở / merge pull request** khi quy tắc dự án chưa cho; AI soạn sẵn để mình duyệt và tự chạy.
 - Không dùng lệnh đụng cả thư mục làm việc khi có thay đổi chưa commit không phải của mình.

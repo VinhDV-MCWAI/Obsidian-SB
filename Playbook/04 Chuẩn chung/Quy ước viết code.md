@@ -15,9 +15,11 @@ Cách viết từng file: đặt tên, thứ tự, hàm, lỗi, comment, cách v
 - Quy tắc viết bằng từ khoá mức độ: **PHẢI / KHÔNG ĐƯỢC** (bắt buộc), **NÊN** (mặc định, ngoại lệ có giải thích), **CÓ THỂ** (tuỳ chọn).
 - Bắt đầu với ít quy tắc ảnh hưởng tới đúng, bảo mật, bảo trì; thêm khi thực tế cần.
 - Đơn giản hơn khéo léo.
+- **Ngôn ngữ**: mọi thứ trong code bằng **tiếng Anh** — tên (file, biến, hàm, lớp, route, cột, key), comment, log, thông báo lỗi cho dev, tên test, chuỗi trong script, commit message. Chữ **người dùng thấy** đi qua đa ngôn ngữ (file ngôn ngữ / khoá thông báo), không viết cứng trong code. Tài liệu viết theo ngôn ngữ của nhóm (dự án của mình: tiếng Việt). Nhóm có quy ước khác → theo nhóm.
 
 ## Tối thiểu mọi phiên (chép rút gọn vào quy tắc dự án)
 
+- Code, tên, comment, log, thông báo lỗi cho dev, tên test, commit message: tiếng Anh. Chữ người dùng thấy: qua đa ngôn ngữ, không viết cứng. Tài liệu: <ngôn ngữ của nhóm>.
 - Chỉ sửa điều được yêu cầu; refactor hoặc lỗi thấy được → báo, tách commit.
 - Trước khi sửa / xoá: tìm mọi chỗ đang dùng (hàm, route, key, lớp, biến môi trường). Xoá phải xoá hết, kể cả thứ chỉ phần bị xoá dùng; file mới phải được tham chiếu.
 - Không để lại: import / biến / style / key thừa, code bị comment, lệnh in debug, test bị đánh dấu chạy riêng, TODO không mã việc, file `.bak`.
@@ -64,6 +66,7 @@ Chuẩn hoá **theo loại file** (module, thành phần, xử lý request, test
 
 | Chủ đề | Định nghĩa |
 |---|---|
+| Ngôn ngữ | Code / comment / log / commit; chữ người dùng thấy; tài liệu |
 | Đặt tên | File, biến, hàm, lớp, enum, hằng số |
 | Cấu trúc file | Thứ tự trên, theo loại file |
 | Ranh giới module | Khi nào tạo module, dùng chung, trừu tượng |

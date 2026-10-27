@@ -42,18 +42,20 @@ Không mở Playbook trong lúc làm việc; bộ này đã đủ. Mâu thuẫn:
 
 ## Khi viết code
 
-<Chép rút gọn mục "Tối thiểu mọi phiên" của [[Quy ước viết code]], cộng quy ước riêng của dự án: khung phản hồi API, mã lỗi, thông báo, dialog, đặt tên, ngôn ngữ của comment / log / chữ người dùng thấy.>
+- **Ngôn ngữ** (luôn ghi rõ, không để trống): <code, tên, comment, log, thông báo lỗi cho dev, tên test, commit message — tiếng Anh; chữ người dùng thấy qua <cơ chế đa ngôn ngữ của dự án>; tài liệu — <ngôn ngữ của nhóm>>.
+- <Chép rút gọn phần còn lại của mục "Tối thiểu mọi phiên" trong [[Quy ước viết code]], cộng quy ước riêng của dự án: khung phản hồi API, mã lỗi, thông báo, dialog, đặt tên.>
 
 ## Trước khi báo xong
 
 - Chạy <lệnh kiểm tra> và test liên quan; chỉ nói đã qua khi thật sự chạy trong phiên này, kèm kết quả; bước chưa chạy nói lý do.
 - Đối chiếu checklist đã mở theo [[Đối chiếu checklist và minh chứng]]; báo cáo theo mục "Báo cáo khi xong" của [[Quy trình một việc]].
+- Phát hiện / điều tra: tách **đã xác minh** và **nghi vấn**, mỗi mục có vị trí + kịch bản + hậu quả; không thấy gì → nói rõ chỉ cho phạm vi đã xem.
 - Dọn theo <quy tắc dọn của dự án / [[Môi trường phát triển và dọn dẹp]]>.
 
 ## Git, test và minh chứng
 
 - Nhánh: <mô hình nhánh, nhánh làm việc, nhánh dài hạn được bảo vệ>. Merge: <…>.
-- Commit: <quy ước>; AI <không commit / được commit local qua …>; **không bao giờ** push thẳng / force push nhánh dài hạn ([[Git và quy trình]]).
+- Commit: <quy ước, tiếng Anh>; <có / không> dòng ghi công AI; AI <không commit / được commit local qua …>; **không bao giờ** push thẳng / force push nhánh dài hạn ([[Git và quy trình]]).
 - Trước commit: chạy lệnh review ([[Review code - quy trình]]); checklist từng mặt ở <thư mục review của dự án>, chỉ mở lúc này.
 - Pull request: AI soạn mô tả theo <mẫu nhóm / [[Mẫu - Mô tả pull request]]>; mình mở.
 - Test: <loại test, lệnh, khi nào bắt buộc>; test tốn kém / có tác dụng phụ → xin xác nhận ([[Kế hoạch test cho một việc]]). Minh chứng: <nộp gì, cho ai>.
@@ -91,5 +93,6 @@ Gặp chủ đề bảng này chưa có → nói một dòng; mình yêu cầu t
 ## Riêng của dự án
 
 - Không commit: <file cá nhân, file sinh ra…>
+- Quy ước riêng: <cấu trúc thư mục, chuỗi người dùng thấy nằm ở đâu, kích thước màn hình cần kiểm, khung phản hồi…>
 - Cảnh báo công cụ đã biết là sai: <công cụ — lý do>
 - Điểm mù / bẫy riêng: <…>

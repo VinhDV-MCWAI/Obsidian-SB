@@ -48,6 +48,7 @@ File checklist thuần (Validate, Review từng mặt) có thể chỉ có bản
 | Cỡ việc, cổng duyệt, "Luôn hỏi trước", báo cáo khi xong | [[Quy trình một việc]] |
 | Định nghĩa "xong", ký hiệu ✅ ➖ ⏭ ❌ | [[Đối chiếu checklist và minh chứng]] |
 | Nhánh, bảo vệ nhánh, AI được làm gì với git | [[Git và quy trình]] |
+| Ngôn ngữ trong code, comment, log, commit; chữ người dùng thấy | [[Quy ước viết code]] |
 | Cô lập dữ liệu test | [[Chiến lược kiểm thử]] |
 | Tiền tố `TMP ` / `E2E `, dọn dẹp | [[Môi trường phát triển và dọn dẹp]] |
 | Sửa gấp production | [[Phát hành và quay lui]] |
