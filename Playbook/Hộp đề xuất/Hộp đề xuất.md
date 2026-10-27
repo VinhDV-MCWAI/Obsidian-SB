@@ -3,7 +3,7 @@ loai: hop-de-xuat
 ---
 # Hộp đề xuất
 
-Nơi gom **ghi chú học được** từ mọi dự án, chờ đợt cập nhật. Cách ghi và cách chạy đợt cập nhật: [[Ghi chú và cập nhật theo đợt]].
+Nơi gom **ghi chú ghi tay** (ngoài dự án), chờ đợt cập nhật. Ghi chú trong lúc làm dự án nằm ở khối Đề xuất tri thức trong `.me/` của dự án đó. Cách ghi và cách chạy đợt cập nhật: [[Ghi chú và cập nhật theo đợt]].
 
 | File | Dùng để |
 |---|---|

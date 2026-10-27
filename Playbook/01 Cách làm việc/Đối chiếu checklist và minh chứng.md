@@ -10,13 +10,13 @@ cap_nhat: 2026-10-26
 
 ## Cách đối chiếu
 
-Với mỗi file chuẩn đã chọn ở bước 2, đi từng dòng và trả lời một trong bốn:
+Với mỗi checklist đã mở trong việc này (bảng "Tham khảo tri thức cá nhân" của dự án), đi từng dòng và trả lời một trong bốn:
 
 | Ký hiệu | Nghĩa | Phải kèm |
 |---|---|---|
 | ✅ | Đã làm | Ở đâu (file:dòng, tên test) |
 | ➖ | Không áp dụng | Một câu vì sao |
-| ⏭ | Bỏ qua có chủ đích | Lý do + ai đồng ý (mình, hồ sơ dự án tắt mục này) |
+| ⏭ | Bỏ qua có chủ đích | Lý do + ai đồng ý (mình, hoặc quy tắc dự án đã tắt mục này) |
 | ❌ | Chưa làm / không làm được | Nói rõ, đề xuất việc tiếp |
 
 Ví dụ ngắn:
@@ -26,7 +26,7 @@ Validate - Email
 ✅ 1 chuẩn hoá: bước chuẩn hoá của request tạo người dùng (bỏ khoảng trắng, chữ thường)
 ✅ 4 độ dài tối đa: hằng số EMAIL_MAX, test "email quá dài"
 ✅ 6 trùng: unique index trên lower(email) + luật kiểm trùng
-⏭ 8 kiểm tra MX: hồ sơ dự án tắt (môi trường nội bộ không có DNS ngoài)
+⏭ 8 kiểm tra MX: quy tắc dự án tắt (môi trường nội bộ không có DNS ngoài)
 ➖ 9 email dùng một lần: chỉ quản trị viên tạo tài khoản
 ```
 
@@ -61,4 +61,4 @@ Mẫu đầy đủ: [[Mẫu - Minh chứng]].
 - [ ] Migration quay lui được hoặc có kế hoạch.
 - [ ] Tài liệu liên quan đã sửa.
 - [ ] Đã dọn dẹp.
-- [ ] Có điều học được → đã ghi một dòng ghi chú.
+- [ ] Có điều học được → đã ghi một dòng đề xuất tri thức.

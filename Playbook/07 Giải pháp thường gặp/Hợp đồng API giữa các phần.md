@@ -11,7 +11,7 @@ Server và client (web, trang công khai, app) phải hiểu nhau về: đườn
 ## Lựa chọn của tôi
 
 - **Một nguồn sự thật cho hợp đồng**, các bên còn lại **sinh** ra từ đó; file sinh ra không sửa tay.
-- Một server làm nguồn (thường gặp): server sinh **đặc tả API** (OpenAPI) từ chính code → client sinh kiểu dữ liệu từ đặc tả. Nhiều nhóm / nhiều server: viết đặc tả trước rồi sinh cho mọi bên.
+- Một server làm nguồn (thường gặp): server sinh **đặc tả API** (theo chuẩn mở) từ chính code → client sinh kiểu dữ liệu từ đặc tả. Nhiều nhóm / nhiều server: viết đặc tả trước rồi sinh cho mọi bên.
 - Kiểm tra tự động **"file sinh ra không cũ"**: chạy lại bước sinh, có khác biệt → báo lỗi.
 - Đặc tả phải mô tả đúng **khung thật** ([[Giao dịch, lỗi và phản hồi API]]), gồm cả phản hồi lỗi và mã lỗi mà công cụ sinh không tự thấy (403, 404, 429).
 - **Không** sinh code dùng chung cho mọi luật validate qua nhiều công nghệ — chỉ dữ liệu thuần (kiểu, enum, giới hạn đơn giản). Luật cần DB / mạng / nhiều trường viết tay ở bên cần nó.

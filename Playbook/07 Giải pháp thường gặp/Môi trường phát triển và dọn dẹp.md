@@ -9,7 +9,7 @@ cap_nhat: 2026-10-26
 ## Lựa chọn của tôi
 
 - Mọi thứ chạy trong **container**; máy chỉ cài những gì editor cần (để extension hoạt động). Không chạy test / migration / cài thư viện trên máy.
-- **Một file lệnh chung** (ví dụ Makefile) bọc các lệnh hay dùng: dựng, bật, tắt, test, lint, "kiểm tra tất cả", làm mới dữ liệu dev. `help` liệt kê lệnh.
+- **Một file lệnh chung** bọc các lệnh hay dùng: dựng, bật, tắt, test, lint, "kiểm tra tất cả", làm mới dữ liệu dev. `help` liệt kê lệnh.
 - Script (sinh env, build, DB, sao lưu) **chạy lặp lại an toàn**.
 - Test dùng DB / cache **riêng**, có test kiểm chính việc cô lập.
 - **Một lockfile** cho cả repo nhiều gói.
@@ -45,4 +45,4 @@ Việc chưa xong khi còn rác.
 
 - Gắn từng file lẻ vào container → hỏng sau khi máy khởi động lại ([[Vận hành và sự cố]]).
 - Test chạy trên DB dev → mất dữ liệu đang thử bằng tay.
-- Dọn "rác Docker" bằng lệnh xoá cả volume.
+- Dọn "rác container" bằng lệnh xoá cả dữ liệu (volume).

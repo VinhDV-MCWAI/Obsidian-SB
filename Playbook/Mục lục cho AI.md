@@ -1,30 +1,29 @@
 ---
 loai: muc-luc
-cap_nhat: 2026-10-26
+cap_nhat: 2026-10-27
 ---
 # Mục lục cho AI
 
-Chỉ đọc file này ở **mức 2–3** ([[Khi nào dùng Playbook]] — luôn đọc file đó trước). Mức 0–1 đi thẳng tới file theo bảng chốt chặn. Không đọc cả thư mục. Đường dẫn tính từ `Playbook/`. Lựa chọn của dự án thắng lựa chọn trong Playbook.
+Dùng khi **khởi tạo dự án** (bước 4 của [[Khởi tạo dự án]]: mỗi chủ đề một quyết định) và trong **đợt cập nhật**. Việc hằng ngày không đọc file này — dự án đã có bảng "Tham khảo tri thức cá nhân" trong quy tắc của dự án. Không đọc cả thư mục. Đường dẫn tính từ `Playbook/`.
 
-## Cách làm việc
+**Phạm vi:** chỉ mở file có trong mục lục này. Phần còn lại của kho Obsidian (ghi chú cá nhân, công việc, đời sống, file rời ở gốc) — không mở, không liệt kê, không tìm kiếm. File cần mà không có ở đây → hỏi mình.
+
+## Quy trình
 
 | File | Khi nào |
 |---|---|
-| `01 Cách làm việc/Khi nào dùng Playbook.md` | **Luôn đọc đầu tiên**: chốt chặn, mức đọc, lập kế hoạch |
-| `Hướng dẫn sử dụng.md` | Chỉ khi mình hỏi về cách làm việc với AI: gói, model, loại việc, prompt, phạm vi, điểm mù |
-| `01 Cách làm việc/Luồng làm một việc.md` | Phân loại cỡ việc, mười bước, đánh giá ảnh hưởng |
-| `01 Cách làm việc/Đối chiếu checklist và minh chứng.md` | Trước khi báo "xong" |
-| `01 Cách làm việc/Ghi chú và cập nhật theo đợt.md` | Gặp điều học được; khi mình yêu cầu đợt cập nhật |
-| `01 Cách làm việc/Thống kê công việc cho CV.md` | Chỉ khi mình yêu cầu (kết thúc dự án) |
-| `01 Cách làm việc/Tiết kiệm chi phí AI.md` | Chọn độ sâu, thứ tự tham khảo |
+| `02 Tiếp cận dự án mới/Khởi tạo dự án.md` | Bắt đầu / nhận lại dự án, đổi công cụ AI hoặc editor |
+| `02 Tiếp cận dự án mới/Công cụ và hook của dự án.md` | Tạo / sửa công cụ và hook của dự án; kiểm tra lệch tài liệu |
+| `08 Mẫu/Mẫu - Quy tắc dự án.md`, `08 Mẫu/Mẫu - Bản đồ dự án.md` | Đề mục cho quy tắc và bản đồ của dự án |
+| `01 Cách làm việc/Review trước commit.md` | Trước khi đưa danh sách `git add` / commit message |
+| `01 Cách làm việc/Đối chiếu checklist và minh chứng.md` | Trước khi báo "xong" một việc có mở checklist |
+| `01 Cách làm việc/Ghi chú và cập nhật theo đợt.md` | Chỉ khi mình yêu cầu đợt cập nhật |
+| `01 Cách làm việc/Thống kê công việc cho CV.md` | Chỉ khi mình yêu cầu |
 
 ## Theo chủ đề
 
-| Chủ đề của việc | File |
+| Chủ đề | File |
 |---|---|
-| Bắt đầu / nhận lại dự án: xác định loại, cần tạo gì | `02 Tiếp cận dự án mới/Thiết lập theo loại dự án.md` |
-| Các bước tiếp cận chi tiết, thư mục `.me/` | `02 Tiếp cận dự án mới/Checklist tiếp cận dự án.md`, `Thư mục tài liệu riêng của dự án.md` |
-| Cài Playbook cho AI | `02 Tiếp cận dự án mới/Kết nối Playbook với AI.md` |
 | Branch, commit, PR, merge, review | `03 Chuẩn chung/Git và quy trình.md` |
 | Chia lớp, đặt tên, comment, SOLID | `03 Chuẩn chung/Thiết kế code và chia lớp.md` |
 | Khung phản hồi API, mã HTTP, ngoại lệ, giao dịch | `03 Chuẩn chung/Giao dịch, lỗi và phản hồi API.md` |
@@ -61,5 +60,5 @@ Chỉ đọc file này ở **mức 2–3** ([[Khi nào dùng Playbook]] — luô
 | Checklist kiểm thử từng thành phần | `Testing/Aggregates/Testing.md` |
 | Mẫu thiết kế chi tiết màn hình / API | `Technical/Aggregates/Detail Design.md` |
 | Mẫu test case, báo cáo | `Technical/Concepts/Unit & integrate test case.md` |
-| Đăng nhập, Redis, MinIO, sao lưu, tìm kiếm | `Technical/Aggregates/` |
+| Đăng nhập, cache, kho file, sao lưu, tìm kiếm | `Technical/Aggregates/` |
 | Đồng thời, tải lớn, API bên thứ ba | `Technical/Issues/` |

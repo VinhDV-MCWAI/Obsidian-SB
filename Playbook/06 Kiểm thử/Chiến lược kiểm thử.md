@@ -15,18 +15,18 @@ Kiến thức có sẵn trong kho — **dùng trực tiếp, không chép lại*
 
 Hỏi: "**cái gì hỏng thì đau nhất, và test rẻ nhất nào bắt được nó?**". Độ phủ chỉ để không âm thầm giảm.
 
-| Mức | Chứng minh | Viết khi | Công cụ (ví dụ) |
-|---|---|---|---|
-| Đơn vị | Một hàm / lớp đúng quy tắc | Nghiệp vụ, tính toán, xử lý chuỗi, hook | PHPUnit / Pest, Vitest / Jest, pytest |
-| Tích hợp / API | Các phần chạy đúng với DB, cache thật | **Mỗi API**: đúng, 422, 401, 403, 404, 409 | Feature test của framework, Supertest, pytest + client |
-| Hợp đồng | FE và BE hiểu nhau | Mỗi lần đổi API | So phản hồi với đặc tả OpenAPI; kiểm file sinh ra không cũ |
-| Component | Một component hiển thị / tương tác đúng | Component dùng chung, form phức tạp | Testing Library + MSW |
-| Đầu cuối (E2E) | Một luồng người dùng thật | **Chỉ** luồng quan trọng (đăng nhập, thanh toán, luồng chính) | Playwright |
-| Hiệu năng | Đủ nhanh dưới tải | API nặng, trước phát hành | k6, JMeter |
-| Bảo mật | Tấn công đã biết bị chặn | Đăng nhập, quyền, upload | Test quyền trong feature test, OWASP ZAP, Burp |
-| Truy cập dễ dàng | Bàn phím, đọc màn hình, tương phản | Khi dự án yêu cầu | axe + Playwright, Lighthouse |
-| SEO | Thẻ meta, sitemap, tốc độ | Trang công khai | Lighthouse |
-| Giao diện bằng ảnh | Không vỡ giao diện | Hệ thống thiết kế lớn | Playwright screenshot, Chromatic |
+| Mức | Chứng minh | Viết khi |
+|---|---|---|
+| Đơn vị | Một hàm / lớp đúng quy tắc | Nghiệp vụ, tính toán, xử lý chuỗi, hook |
+| Tích hợp / API | Các phần chạy đúng với DB, cache thật | **Mỗi API**: đúng, 422, 401, 403, 404, 409 |
+| Hợp đồng | FE và BE hiểu nhau | Mỗi lần đổi API |
+| Component | Một component hiển thị / tương tác đúng | Component dùng chung, form phức tạp |
+| Đầu cuối (E2E) | Một luồng người dùng thật | **Chỉ** luồng quan trọng (đăng nhập, thanh toán, luồng chính) |
+| Hiệu năng | Đủ nhanh dưới tải | API nặng, trước phát hành |
+| Bảo mật | Tấn công đã biết bị chặn | Đăng nhập, quyền, upload |
+| Truy cập dễ dàng | Bàn phím, đọc màn hình, tương phản | Khi dự án yêu cầu |
+| SEO | Thẻ meta, sitemap, tốc độ | Trang công khai |
+| Giao diện bằng ảnh | Không vỡ giao diện | Hệ thống thiết kế lớn |
 
 Nhiều đơn vị + tích hợp, ít E2E. Mức nào cần đi sâu (hiệu năng, SEO, a11y) → **hỏi mình** theo dự án.
 

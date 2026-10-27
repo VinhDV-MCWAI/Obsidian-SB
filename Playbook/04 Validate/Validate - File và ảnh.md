@@ -17,7 +17,7 @@ Nền: [[minio]]. Giải pháp đầy đủ: [[Upload file và kho file]].
 | 5 | Tên file: rất dài, có dấu, emoji, ký tự điều khiển, `../`, khoảng trắng đầu/cuối, trùng tên | — | ✔ | Lưu bằng tên sinh ra; giữ tên gốc trong DB |
 | 6 | Số file mỗi lần tối đa | ✔ | ✔ | |
 | 7 | File rỗng (0 byte) | ✔ | ✔ | |
-| 8 | Quét virus nếu người khác tải về | — | tuỳ | ClamAV |
+| 8 | Quét virus nếu người khác tải về | — | tuỳ | công cụ quét virus |
 | 9 | Xoá metadata nhạy cảm của ảnh (EXIF vị trí) | — | tuỳ | |
 | 10 | File lớn: tải nhiều phần, tiếp tục được, có tiến độ | ✔ | ✔ | |
 | 11 | Import CSV/Excel: mã hoá (UTF-8, BOM, Shift-JIS), dòng trống, cột thiếu, số dòng tối đa | — | ✔ | Báo lỗi theo dòng |

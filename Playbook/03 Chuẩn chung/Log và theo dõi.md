@@ -6,7 +6,7 @@ cap_nhat: 2026-10-26
 ---
 # Log và theo dõi
 
-Mục tiêu: khi có sự cố, từ một **mã tra cứu** người dùng báo, tìm ra toàn bộ đường đi của request trong vài phút (CloudWatch, Grafana Loki, ELK…).
+Mục tiêu: khi có sự cố, từ một **mã tra cứu** người dùng báo, tìm ra toàn bộ đường đi của request trong vài phút (hệ thống gom log tập trung).
 
 ## Lựa chọn của tôi
 

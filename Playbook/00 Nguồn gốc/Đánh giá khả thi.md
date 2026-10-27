@@ -4,7 +4,9 @@ cap_nhat: 2026-10-26
 ---
 # Đánh giá khả thi và hiệu quả
 
-Đánh giá khách quan Playbook ở trạng thái 2026-10-26 (sau khi có [[Khi nào dùng Playbook]] và [[Thiết lập theo loại dự án]]). AI không đọc file này khi làm việc — chỉ để mình tham khảo khi quyết định giữ / sửa.
+> **Lỗi thời (2026-10-27):** đánh giá theo mô hình cũ (kỹ năng + mức 0–3, dòng "Playbook: …"). Mô hình hiện tại: khởi tạo một lần → quy tắc dự án — xem [[Playbook]]. Chỉ giữ làm lịch sử.
+
+Đánh giá khách quan Playbook ở trạng thái 2026-10-26 (sau khi có [[Mẫu - Quy tắc dự án]] và [[Khởi tạo dự án]]). AI không đọc file này khi làm việc — chỉ để mình tham khảo khi quyết định giữ / sửa.
 
 ## Kết luận ngắn
 
@@ -28,7 +30,7 @@ cap_nhat: 2026-10-26
 
 | Thành phần | Giá trị | Giữ / sửa |
 |---|---|---|
-| Chốt chặn ([[Khi nào dùng Playbook]]) | Cao — đúng chỗ model mạnh vẫn sai | Giữ; bổ sung khi gặp điểm mù mới |
+| Chốt chặn ([[Mẫu - Quy tắc dự án]]) | Cao — đúng chỗ model mạnh vẫn sai | Giữ; bổ sung khi gặp điểm mù mới |
 | "Lựa chọn của tôi" | Cao — nhất quán giữa dự án | Giữ; **cần mình sửa** cho đúng ý |
 | Bẫy trong từng file | Cao — kinh nghiệm thật | Giữ; nguồn chính để Playbook có giá trị hơn kiến thức model |
 | Validate theo loại trường | Cao với form / API | Giữ |
@@ -49,4 +51,4 @@ cap_nhat: 2026-10-26
 ## Đã vá khi đánh giá
 
 - Bảng chốt chặn thiếu: **gửi ra bên ngoài** (mail, webhook, API bên thứ ba), **việc nền / hẹn giờ**, **dữ liệu riêng tư lộ ra trang công khai / tìm kiếm / xuất file** → đã thêm.
-- Thêm [[Hướng dẫn sử dụng]]: tự đánh giá gói AI, công cụ, model, loại việc, cách prompt, phạm vi, điểm mù.
+- Thêm [[Khởi tạo dự án]]: tự đánh giá gói AI, công cụ, model, loại việc, cách prompt, phạm vi, điểm mù.

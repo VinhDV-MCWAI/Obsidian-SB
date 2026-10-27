@@ -27,7 +27,7 @@ Rút gọn từ OWASP Top 10 + kinh nghiệm. Đào sâu: [[authen_&_author]], [
 ## Đăng nhập và phiên
 
 - [ ] Mật khẩu băm bằng thuật toán chậm (bcrypt / argon2), không bao giờ mã hoá hai chiều.
-- [ ] Giới hạn tần suất **nhiều tầng**: theo tài khoản + IP và theo tài khoản riêng (chống dò từ nhiều IP), dùng Redis thay vì DB (xem [[Other Issue]]).
+- [ ] Giới hạn tần suất **nhiều tầng**: theo tài khoản + IP và theo tài khoản riêng (chống dò từ nhiều IP), đếm ở kho nhanh có hết hạn (cache) thay vì DB (xem [[Other Issue]]).
 - [ ] Thông báo đăng nhập sai chung chung (không nói "email không tồn tại").
 - [ ] Cookie phiên: `HttpOnly`, `Secure`, `SameSite`; đổi id phiên sau khi đăng nhập.
 - [ ] Thu hồi được phiên / token trên một thiết bị và tất cả thiết bị; đổi mật khẩu → thu hồi phiên khác.
@@ -50,7 +50,7 @@ Rút gọn từ OWASP Top 10 + kinh nghiệm. Đào sâu: [[authen_&_author]], [
 - [ ] Kiểm loại file bằng nội dung (magic bytes), không tin đuôi file / `Content-Type`.
 - [ ] Giới hạn dung lượng ở cả proxy và ứng dụng.
 - [ ] Đổi tên khi lưu; lưu ngoài thư mục chạy được; tải xuống qua URL ký có hạn.
-- [ ] Quét virus nếu người khác sẽ tải về (ClamAV).
+- [ ] Quét virus nếu người khác sẽ tải về.
 
 ## Dữ liệu cá nhân
 
@@ -59,5 +59,5 @@ Rút gọn từ OWASP Top 10 + kinh nghiệm. Đào sâu: [[authen_&_author]], [
 
 ## Thư viện
 
-- [ ] Quét lỗ hổng thư viện định kỳ (`npm audit`, `composer audit`, `pip-audit`, Dependabot / Renovate).
+- [ ] Quét lỗ hổng thư viện định kỳ (lệnh kiểm tra của trình quản lý gói + dịch vụ tự đề xuất cập nhật thư viện).
 - [ ] Thêm thư viện phải có lý do; ưu tiên thư viện được duy trì.

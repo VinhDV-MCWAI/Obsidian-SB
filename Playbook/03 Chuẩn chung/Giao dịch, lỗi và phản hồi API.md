@@ -6,7 +6,7 @@ cap_nhat: 2026-10-26
 ---
 # Giao dịch, lỗi và phản hồi API
 
-Ba thứ áp dụng cho **mọi API**, dựng chung một lần ngay từ đầu dự án. Vào dự án có sẵn: dự án đã chọn gì thì theo dự án, ghi khác biệt vào `.me/Hồ sơ dự án.md`.
+Ba thứ áp dụng cho **mọi API**, dựng chung một lần ngay từ đầu dự án. Vào dự án có sẵn: dự án đã chọn gì thì theo dự án, ghi đường dẫn vào bản đồ dự án (mục Thành phần dùng chung).
 
 ---
 

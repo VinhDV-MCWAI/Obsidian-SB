@@ -32,7 +32,7 @@ cap_nhat: 2026-10-26
 - [ ] Vùng bấm trên điện thoại đủ lớn (~44 px).
 - [ ] Ảnh có mô tả thay thế (ảnh trang trí để trống).
 - [ ] Chuyển động có thể tắt theo cài đặt "giảm chuyển động" của hệ điều hành.
-- [ ] Kiểm tự động bằng công cụ (axe / Lighthouse) + một lượt dùng thử chỉ bằng bàn phím.
+- [ ] Kiểm tự động bằng công cụ kiểm a11y + một lượt dùng thử chỉ bằng bàn phím.
 
 ## Bẫy
 

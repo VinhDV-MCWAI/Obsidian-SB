@@ -2,57 +2,70 @@
 chu_de: cong-cu
 ap_dung: [moi-du-an]
 muc_do: nen-tang
-cap_nhat: 2026-10-26
+cap_nhat: 2026-10-27
 ---
 # Công cụ kiểm tra tự động
 
-Nguyên tắc: **thứ gì máy kiểm được thì để máy kiểm.** Rẻ hơn AI đọc code, chính xác hơn, và báo ngay trong editor (tab Problems).
+Nguyên tắc: **thứ gì máy kiểm được thì để máy kiểm.** Rẻ hơn AI đọc code, chính xác hơn, lần nào cũng cho cùng kết quả, và báo ngay trong editor.
+
+File này chỉ nói **cần nhóm công cụ nào và để làm gì**. Công cụ cụ thể do AI chọn lúc khởi tạo, theo ngôn ngữ / hệ sinh thái của dự án, editor và những gì máy đã cài ([[Khởi tạo dự án]], bước kiểm tra môi trường).
 
 ## Lựa chọn của tôi
 
-Mọi dự án có đủ **bảy nhóm nền tảng**: định dạng, lint, kiểm tra kiểu, test, hook trước commit, quét bí mật, quét lỗ hổng thư viện — và **một lệnh "kiểm tra tất cả"** chạy trước khi báo xong (CI chạy đúng lệnh đó). Tên công cụ cụ thể chọn theo công nghệ của dự án; cột "ví dụ" dưới đây chỉ để tham khảo.
+- Mọi dự án có đủ **bảy nhóm nền tảng** dưới đây và **một lệnh "kiểm tra tất cả"** chạy trước khi báo xong (CI chạy đúng lệnh đó).
+- Công cụ chỉ áp quy tắc **khi dự án có cấu hình cho nó** — không áp style cá nhân lên code của nhóm.
+- Công cụ cá nhân (plugin editor, script kiểm tra riêng) → tự cài, không thêm vào file được track của nhóm. Công cụ nền tảng còn thiếu → **đề xuất** cho nhóm.
 
 ## Nhóm công cụ
 
-| Nhóm | Bắt gì | Ví dụ theo công nghệ | Mức |
-|---|---|---|---|
-| Formatter | Định dạng | Prettier (JS/TS), Pint / PHP-CS-Fixer (PHP), ruff format / black (Python), gofmt | Nền tảng |
-| Linter | Lỗi hay gặp, quy ước | ESLint, PHPStan / Larastan, ruff, golangci-lint | Nền tảng |
-| Kiểm tra kiểu | Sai kiểu | `tsc --noEmit`, PHPStan level cao, mypy / pyright | Nền tảng |
-| Test | Hành vi | PHPUnit / Pest, Vitest / Jest, pytest, Playwright | Nền tảng |
-| Hook trước commit | Chạy nhanh các thứ trên trước khi commit | husky + lint-staged, pre-commit, lefthook | Nền tảng |
-| Quét bí mật | Khoá, token lọt vào code | gitleaks, trufflehog | Nền tảng |
-| Lỗ hổng thư viện | Thư viện có CVE | `npm/pnpm audit`, `composer audit`, `pip-audit`, Dependabot, Renovate, Trivy | Nền tảng |
-| Phân tích tĩnh bảo mật | SQL injection, XSS… | Semgrep, CodeQL, SonarQube | Nên có |
-| Chất lượng code | Trùng, hàm dài, phức tạp | SonarQube / SonarLint, jscpd, phpmd | Nên có |
-| Ranh giới import | Lớp gọi sai lớp | eslint-plugin-boundaries, deptrac, import-linter | Tuỳ dự án |
-| Quét image / hạ tầng | Lỗ hổng container, cấu hình sai | Trivy, hadolint (Dockerfile), tflint, checkov | Tuỳ dự án |
-| Quét virus file tải lên | Mã độc | ClamAV | Tuỳ dự án |
-| Truy cập dễ dàng | A11y | axe (Playwright), Lighthouse | Tuỳ dự án |
-| Hiệu năng / SEO | Tốc độ, thẻ meta | Lighthouse CI, k6 | Tuỳ dự án |
+| Nhóm | Bắt gì | Mức |
+|---|---|---|
+| Định dạng | Khoảng trắng, xuống dòng, thứ tự import | Nền tảng |
+| Lint | Lỗi hay gặp, quy ước, code chết, import thừa | Nền tảng |
+| Kiểm tra kiểu | Sai kiểu, null, thiếu trường | Nền tảng |
+| Test | Hành vi ([[Chiến lược kiểm thử]]) | Nền tảng |
+| Hook trước commit / push | Chạy nhanh các nhóm trên trên phần thay đổi | Nền tảng |
+| Quét bí mật | Khoá, token, mật khẩu lọt vào code | Nền tảng |
+| Lỗ hổng thư viện | Thư viện có lỗ hổng đã công bố | Nền tảng |
+| Phân tích tĩnh bảo mật | Chèn câu lệnh, XSS, dữ liệu không tin cậy đi tới chỗ nguy hiểm | Nên có |
+| Chất lượng code | Trùng lặp, hàm dài, quá phức tạp | Nên có |
+| Chính tả | Sai chính tả trong tên, chuỗi, comment | Nên có |
+| File / export / thư viện thừa | Thứ không còn ai dùng | Nên có |
+| Ranh giới lớp | Lớp gọi sai lớp | Tuỳ dự án |
+| Quét image / hạ tầng | Lỗ hổng container, cấu hình hạ tầng sai | Tuỳ dự án |
+| Quét virus file tải lên | Mã độc | Tuỳ dự án |
+| Truy cập dễ dàng, hiệu năng trang, SEO | A11y, tốc độ, thẻ meta | Tuỳ dự án |
 
-## Extension editor (VS Code) gợi ý
+## Plugin / extension của editor
 
-| Công nghệ | Extension |
+AI kiểm editor đang dùng và plugin đã cài, rồi đề xuất phần còn thiếu theo nhóm:
+
+| Nhóm | Để làm gì |
 |---|---|
-| Chung | EditorConfig, ESLint, Prettier, GitLens, Error Lens (hiện lỗi ngay trên dòng), Code Spell Checker, SonarLint, Docker, YAML, dotenv |
-| Theo công nghệ của dự án | Extension chính thức của ngôn ngữ và framework + extension của đúng linter / formatter / kiểm tra kiểu mà dự án dùng (để lỗi hiện trong tab Problems giống hệt khi chạy lệnh) |
-| DB | Một client SQL |
+| Hiện lỗi của linter / kiểm tra kiểu ngay trong editor | Lỗi hiện **giống hệt** khi chạy lệnh, theo đúng cấu hình của dự án |
+| Hiện lỗi ngay trên dòng | Không phải mở bảng lỗi mới thấy |
+| Phân tích bảo mật và chất lượng code | Bắt lỗi mà linter thường bỏ qua |
+| Chính tả | Tên biến, chuỗi, comment |
+| Lịch sử git theo dòng | Biết ai sửa, vì sao |
+| Ngôn ngữ / framework chính của dự án | Gợi ý, đi tới định nghĩa, kiểm cú pháp |
 
-Dự án có `.vscode/extensions.json` → dùng theo đó. Không có → cài cho mình, **đề xuất** cho nhóm.
+- Dự án đã có danh sách plugin đề xuất → dùng theo đó.
+- Nhiều plugin chỉ phân tích **file đang mở** → bảng lỗi trống không có nghĩa là sạch. Muốn thấy lỗi cả dự án: bật chế độ phân tích toàn dự án nếu plugin có, hoặc chạy lệnh qua cơ chế task của editor.
+- Editor cho phép tách bộ plugin theo loại dự án → dùng, để mỗi dự án chỉ nạp thứ cần.
 
 ## Thứ tự dựng cho dự án mới
 
-1. Formatter + `.editorconfig` → hết tranh cãi định dạng.
-2. Linter + kiểm tra kiểu ở mức vừa, nâng dần.
+1. Định dạng + cấu hình editor chung → hết tranh cãi định dạng.
+2. Lint + kiểm tra kiểu ở mức vừa, nâng dần.
 3. Test chạy được bằng một lệnh.
-4. Hook trước commit (chỉ các bước nhanh, < 10 giây).
-5. Một lệnh "kiểm tra tất cả" (`make verify`, `pnpm check`) — chạy trước khi báo xong.
+4. Hook trước commit (chỉ bước nhanh, < 10 giây); bước chậm (test, kiểu cả dự án) để trước push.
+5. Một lệnh "kiểm tra tất cả" — chạy trước khi báo xong.
 6. CI chạy đúng lệnh đó + quét bí mật + quét thư viện.
-7. Kiểm tra "file sinh ra không cũ" nếu có sinh code (đặc tả API → kiểu dữ liệu).
+7. Kiểm "file sinh ra không cũ" nếu có sinh code (đặc tả API → kiểu dữ liệu).
 
 ## Khi vào dự án có sẵn
 
-- [ ] Lệnh nào kiểm tra gì? Ghi vào `.me/Hồ sơ dự án.md`.
+- [ ] Lệnh nào kiểm tra gì? Ghi vào quy tắc của dự án (mục Lệnh).
 - [ ] Lỗi linter có sẵn rất nhiều → không sửa hàng loạt (lẫn với việc của mình); chỉ đảm bảo phần mình sửa sạch.
-- [ ] Thiếu công cụ nền tảng → đề xuất, kèm lợi / chi phí.
+- [ ] Thiếu nhóm nền tảng → đề xuất, kèm lợi / chi phí.
+- [ ] Kiểm tra mỗi việc **một lần**: phần đã qua ở bước trước (cùng nội dung, cùng cấu hình) thì bước sau bỏ qua; chỉ chạy test / kiểu cho phần bị ảnh hưởng.

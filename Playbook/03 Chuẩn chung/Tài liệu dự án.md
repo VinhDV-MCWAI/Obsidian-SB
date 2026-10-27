@@ -6,7 +6,7 @@ cap_nhat: 2026-10-26
 ---
 # Tài liệu dự án
 
-Áp dụng cho tài liệu **của nhóm** (lớp 3, trong repo). Tài liệu riêng của mình: [[Thư mục tài liệu riêng của dự án]].
+Áp dụng cho tài liệu **của nhóm** (lớp 3, trong repo). Tài liệu riêng của mình (`.me/`): [[Khởi tạo dự án]]; giữ tài liệu khớp code: [[Công cụ và hook của dự án]] (kiểm tra lệch tài liệu).
 
 ## Lựa chọn của tôi
 

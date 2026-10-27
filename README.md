@@ -1,24 +1,17 @@
 # Obsidian-SB
 
+Kho tri thức chung của mình.
 
-├── 📂1_Concepts/ # Nơi chứa các hạt nguyên tử: queue, worker, job... 
+| Thư mục | Nội dung | AI ở dự án được đọc? |
+|---|---|---|
+| `Playbook/` | Chuẩn làm việc, tham khảo để khởi tạo dự án — bắt đầu ở `Playbook/Playbook.md` | Có, theo phạm vi ở `Playbook/Mục lục cho AI.md` |
+| `Technical/` | Kiến thức kỹ thuật: `Concepts/` (khái niệm), `Aggregates/` (chủ đề gom nhóm), `Issues/` (bài toán thực tế), `Computer History/` | Chỉ file được mục lục liệt kê |
+| `Testing/` | Checklist kiểm thử | Chỉ file được mục lục liệt kê |
+| `Job/` | Tuyển dụng, phỏng vấn, định hướng nghề | Không |
+| `Memories Of Life/` | Đời sống cá nhân | Không |
 
-├── 📂 2_Aggregates/ # Nơi gom nhóm: Message_System, Database_Architecture... 
+## Việc cần làm
 
-└── 📂 3_Issues/ # Nơi chứa các bài toán thực tế bạn cần giải quyết
-
-
-
-Tiểu sử:
-kỉ niệm:
-sở thích:
-sự nghiệp:
-Mối quan hệ:
-tài chính:
-nghiên cứu lịch sử, khoa học,chính trị,..
-du lịch
-game
-
-
-dọn dẹp kho dữ liệu, cấu trúc lại dữ liệu theo dạng tối giản, theo trình tự thời gian
-- viết cv có thể tham khảo https://talent.saigontechnology.com/?utm_source=saigontechnology.com&utm_medium=saigontechnology.com_company_menu&utm_campaign=saigontechnology.com_company_menu&_gl=1*11z968g*_gcl_au*MzIwMzkxNzY2LjE3ODc0OTY0OTI.*_ga*NjMyNTEyNjc1LjE3ODc0OTY0OTM.*_ga_KK0CK29225*czE3ODc0OTY0OTMkbzEkZzAkdDE3ODc0OTY0OTMkajYwJGwwJGgw ở đây họ như kiểu công ty giới thiệu nhân sự công ty để khách hàng book job vậy
+- Viết CV: tham khảo https://talent.saigontechnology.com/ (cách công ty giới thiệu nhân sự để khách hàng book).
+- Chủ đề muốn ghi thêm: tiểu sử, kỉ niệm, sở thích, sự nghiệp, mối quan hệ, tài chính, lịch sử / khoa học / chính trị, du lịch, game.
+- Dọn kho: tối giản, theo trình tự thời gian.

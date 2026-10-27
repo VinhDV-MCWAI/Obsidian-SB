@@ -10,7 +10,7 @@ Nền: [[minio]]. Validate từng file: [[Validate - File và ảnh]].
 
 ## Lựa chọn của tôi
 
-- File đi **thẳng từ trình duyệt vào kho file** (S3 / tương thích S3) bằng **link ký có hạn** do server cấp; server không chuyển tiếp dữ liệu file.
+- File đi **thẳng từ trình duyệt vào kho file** (kho lưu trữ đối tượng) bằng **link ký có hạn** do server cấp; server không chuyển tiếp dữ liệu file.
 - Luồng: **xin link → gửi file → báo xong → server kiểm → xử lý nền** (ảnh nhỏ, đọc thông tin).
 - File lớn **chia phần**; nhỏ gửi một lần. Ví dụ ngưỡng: ≤ 100 MB một lần; 100–500 MB phần 16 MB; > 500 MB phần 32 MB.
 - Kho file không cho đọc công khai; tải về / xem trước bằng link ký ngắn hạn (vài phút; video dài thì dài hơn).

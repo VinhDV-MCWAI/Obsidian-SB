@@ -18,7 +18,7 @@ Danh mục gốc ~130 mục: [[Bản nháp 2 - Đề xuất bộ chuẩn]] (mụ
 | CV | Cuối dự án, lọc từ git / PR / `.me/` |
 | Thứ tự tham khảo của AI | Dự án → `.me/` → Playbook → kiến thức model → internet |
 | Định dạng | Markdown + phần đầu YAML |
-| AI biết Playbook bằng cách nào | Kỹ năng cấp người dùng `~/.claude/skills/playbook/` ([[Kết nối Playbook với AI]]) |
+| AI biết Playbook bằng cách nào | Kỹ năng cấp người dùng `~/.claude/skills/playbook/` ([[Khởi tạo dự án]]) |
 
 ## Trạng thái theo nhóm
 

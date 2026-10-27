@@ -1,64 +1,88 @@
 ---
 loai: tong-quan
-cap_nhat: 2026-10-26
+cap_nhat: 2026-10-27
 ---
-# Playbook — bộ chuẩn làm việc cá nhân
+# Playbook — tri thức cá nhân
 
-Bắt đầu đọc ở đây. Bộ này là **kinh nghiệm của riêng mình**, viết thành quy chuẩn **không phụ thuộc công nghệ**: mỗi chủ đề nói *cần đạt gì* và *lựa chọn của tôi là gì*, không chép code hay nói riêng một framework. Dùng cho mọi dự án; không chia sẻ, không commit vào source của dự án.
+Kinh nghiệm của riêng mình, viết thành chuẩn **không phụ thuộc ngôn ngữ, framework, editor hay công cụ AI**: mỗi chủ đề nói *cần đạt gì* và *lựa chọn của tôi*. Kho này chỉ có tài liệu và liên kết — không có code, script hay cấu hình để chép.
 
-## Ba lớp tài liệu
+Đây là **nguồn tham khảo để khởi tạo**, không phải bộ để chép: ở mỗi dự án, AI đọc **đúng phần cần** trong kho, đối chiếu với môi trường và dự án thật, rồi **tự tạo** bộ quy tắc + tài liệu + công cụ cho riêng dự án. Sau đó dự án tự đủ dùng — làm việc như prompt bình thường; tri thức cá nhân chỉ được mở ở những chỗ dự án đã đánh dấu, hoặc khi mình yêu cầu.
 
-| Lớp | Nằm ở đâu | Sống bao lâu | Chứa gì | Ai sửa |
-|---|---|---|---|---|
-| **1. Tri thức chuẩn** | Kho Obsidian, `Playbook/` | Mãi mãi | Chuẩn, checklist, lựa chọn của tôi, giải pháp, bẫy — đã khái quát hoá | **Mình**, theo đợt, từ [[Ghi chú]] |
-| **2. Tài liệu riêng dự án** | `.me/` trong thư mục dự án, loại bằng `.git/info/exclude` | Bằng tuổi dự án; xoá thoải mái | Lọc **vừa đủ** từ Playbook cho dự án + lựa chọn của dự án + bản đồ đường dẫn tới thành phần | AI tạo khi bắt đầu dự án, cập nhật khi code đổi |
-| **3. Tài liệu của nhóm** | Repo dự án | Theo dự án | Theo quy ước nhóm | Theo quy trình nhóm |
+## Phạm vi đọc — AI chỉ trích xuất phần cần
 
-Không commit lớp 2 ở bất kỳ dự án nào (công ty hay cá nhân).
+Kho Obsidian là kho tri thức chung của mình (có cả ghi chú cá nhân). AI ở dự án **đọc tại chỗ** theo đường dẫn trên máy, **không clone, không chép cả kho vào dự án**, và chỉ được mở:
 
-**Người mới dùng / đổi gói AI / đổi công cụ:** đọc [[Hướng dẫn sử dụng]] trước — biết mình đang có gì, làm tốt tới đâu, prompt và cô lập phạm vi thế nào. Đánh giá khách quan: [[Đánh giá khả thi]].
+| Được mở | Khi |
+|---|---|
+| `Playbook/` (trừ `00 Nguồn gốc/`, `Hộp đề xuất/`) | Khởi tạo; hằng ngày chỉ theo bảng tham khảo của dự án |
+| File trong mục "Kiến thức nền" của [[Mục lục cho AI]] | Chỉ khi cần đào sâu đúng chủ đề đó |
+| `Hộp đề xuất/` | Chỉ trong đợt cập nhật |
 
-## Bắt đầu sử dụng — câu lệnh mẫu
+Mọi thư mục / file khác của kho (ghi chú cá nhân, công việc, đời sống, file rời ở gốc) — **không mở, không liệt kê, không tìm kiếm trong đó**. Tìm file thì đi qua [[Mục lục cho AI]], không quét cả kho.
 
-Kỹ năng `playbook` đã cài ở `~/.claude/skills/playbook/` ([[Kết nối Playbook với AI]]). AI đọc [[Khi nào dùng Playbook]] trước, tự quyết có cần tham khảo không (mức 0–3), nhưng **luôn** đối chiếu checklist khi việc chạm chốt chặn (quyền, dữ liệu nhập, DB, tiền, file, lỗi API, phát hành, log nhạy cảm). Đầu câu trả lời có một dòng "Playbook: …" để mình biết AI đã chọn gì.
+## Đối chiếu tri thức với dự án
+
+| Tình huống | Lấy |
+|---|---|
+| Hai bên tương đồng | Bên nào cũng được — ưu tiên cách viết sẵn của dự án (khỏi chép) |
+| Cùng giá trị, khác cách làm | **Dự án** |
+| Dự án chưa có | **Tri thức cá nhân**, viết lại cho công nghệ của dự án |
+| Cả hai đều có thể tốt hơn | AI đề xuất phương án tối ưu kèm lý do; mình duyệt rồi mới thành quy tắc dự án |
+
+Kết quả là quy tắc + tài liệu **của dự án**; từ đó AI làm theo quy tắc dự án, không đối chiếu lại mỗi lần.
+
+## Mô hình
+
+```
+Kho tri thức (repo này — chỉ tài liệu, AI chỉ đọc phần trong phạm vi)
+   │  khởi tạo — một lần mỗi dự án: AI đọc phần cần, kiểm môi trường, đối chiếu, hỏi, tự tạo
+   ▼
+Dự án/.me/  quy tắc · bản đồ · tài liệu · công cụ và hook riêng   ← dùng cho hầu hết mọi việc
+   │  học được điều dùng lại được → một dòng đề xuất tri thức
+   ▼
+Đợt cập nhật (khi kết thúc dự án / khi mình yêu cầu) → sửa Playbook → commit kho tri thức
+```
+
+| Lớp | Ở đâu | Ai sửa |
+|---|---|---|
+| Tri thức cá nhân | Repo này, nằm sẵn trên máy; AI đọc tại chỗ | Mình, theo đợt |
+| Tài liệu riêng của dự án | `.me/` và file cá nhân AI tạo trong dự án, không commit vào repo nhóm | AI tạo khi khởi tạo, cập nhật khi code đổi, mình xác nhận |
+| Tài liệu của nhóm | Repo dự án | Theo quy trình nhóm — luôn thắng hai lớp trên |
+
+Không cài gì global: quy tắc, hook, lệnh đều nằm trong phạm vi từng dự án, mỗi dự án tuỳ chỉnh riêng, không ảnh hưởng dự án khác. Thiết lập **một lần lúc khởi tạo**; sau đó chỉ đổi khi mình yêu cầu — AI không tự thêm / đổi quy ước hay hook trong lúc làm việc.
+
+## Ba thời điểm
+
+| Khi | Mình làm | AI đọc |
+|---|---|---|
+| **Khởi tạo** (dự án mới / nhận lại / đổi công cụ) | Dán câu lệnh bên dưới, kèm đường dẫn kho trên máy | [[Khởi tạo dự án]] → lọc theo [[Mục lục cho AI]] |
+| **Hằng ngày** | Prompt như bình thường | Quy tắc của dự án (tự nạp) → bản đồ → đúng file; tri thức cá nhân chỉ theo bảng tham khảo trong quy tắc, hoặc khi mình yêu cầu |
+| **Định kỳ / khi yêu cầu** | Ra lệnh | [[Ghi chú và cập nhật theo đợt]], [[Thống kê công việc cho CV]] |
+
+## Câu lệnh
 
 | Khi | Dán |
 |---|---|
-| Lần đầu mở / nhận lại một dự án (**model đủ sức**: thường cân bằng, quét bằng tác tử phụ nhanh — xem bậc thang trong [[Hướng dẫn sử dụng]]) | *Dùng playbook: xác định loại dự án theo Thiết lập theo loại dự án (chỉ quét cấu trúc), báo loại + lý do. Sau khi tôi xác nhận: hỏi tôi các câu cần thiết, đề xuất cách đóng gói tài liệu và cách làm việc với dự án này theo mục 'Bước cuối'. Chưa sửa gì.* |
-| Mỗi việc | Prompt ngắn như bình thường. Việc dài: *"ghi danh sách bước rồi làm theo"*. |
-| Pull code mới sau một thời gian | *Cập nhật `.me/Bản đồ.md` theo các commit mới.* |
-| Mỗi tháng | *Chạy đợt cập nhật Playbook từ Hộp đề xuất/Ghi chú.md.* → xem diff, commit, push kho Obsidian |
-| Kết thúc dự án | *Tổng hợp CV cuối dự án theo Thống kê công việc cho CV.* → rồi mới xoá `.me/` |
-
-Nhớ: Playbook là **bản đầu** — gặp chỗ không đúng ý thì sửa thẳng "Lựa chọn của tôi" trong Obsidian.
-
-## Cách dùng
-
-| Khi | Làm | File |
-|---|---|---|
-| Bắt đầu dự án (pull code / khởi tạo) | Một phiên riêng: AI đọc dự án, đối chiếu Playbook, tạo `.me/` | [[Checklist tiếp cận dự án]] |
-| Mỗi việc | Nhỏ: làm luôn. Vừa / lớn: `.me/` → mục lục → 1–3 file → kế hoạch → làm → đối chiếu checklist | [[Luồng làm một việc]] |
-| Gặp điều học được | AI thêm **một dòng** vào [[Ghi chú]] — không tra cứu, không sửa Playbook | [[Ghi chú và cập nhật theo đợt]] |
-| Mỗi tháng / kết thúc dự án | Đợt cập nhật Playbook từ ghi chú; mình xem diff, commit, push | [[Ghi chú và cập nhật theo đợt]] |
-| Kết thúc dự án | Tổng hợp CV từ lịch sử git / PR / `.me/` | [[Thống kê công việc cho CV]] |
-
-Thứ tự tham khảo của AI: **dự án → `.me/` → Playbook → kiến thức model → internet**. Việc đắt (tra cứu, tổng hợp, cập nhật tri thức, CV) làm theo đợt ([[Tiết kiệm chi phí AI]]).
-
-Ở dự án công ty, chỉ học **công nghệ, cách triển khai, giải pháp, sai lầm chung** — không ghi gì về công ty, hệ thống hay lỗ hổng của họ.
+| Khởi tạo | *Tri thức cá nhân ở `<đường dẫn>/Playbook`. Đọc `02 Tiếp cận dự án mới/Khởi tạo dự án.md` và khởi tạo cho dự án này. Chưa sửa code.* |
+| Được báo tài liệu lệch | *Cập nhật tài liệu theo báo cáo lệch.* (hoặc bỏ qua) |
+| Muốn tự kiểm tài liệu | *Kiểm tra tài liệu.* |
+| Kết thúc dự án / khi muốn | *Chạy đợt cập nhật tri thức theo `<đường dẫn>/Playbook/01 Cách làm việc/Ghi chú và cập nhật theo đợt.md`.* → xem diff, commit kho tri thức |
+| Mỗi tháng / trước khi rời dự án | *Tổng hợp CV theo `<đường dẫn>/Playbook/01 Cách làm việc/Thống kê công việc cho CV.md`.* |
+| Tri thức có thay đổi đáng áp dụng | *So quy tắc và hook của dự án với `<đường dẫn>/Playbook/<file>`, đề xuất phần cần sửa.* |
+| Cần tham khảo chủ đề chưa có trong bảng | *Tham khảo tri thức cá nhân về `<chủ đề>`.* → AI tra mục lục, mở đúng file, đề xuất thêm dòng vào bảng tham khảo |
+| Đổi quy tắc / hook | *Sửa quy tắc / hook của dự án: …* |
 
 ## Bản đồ thư mục
 
-| Thư mục | Nội dung |
-|---|---|
-| `00 Nguồn gốc/` | Vì sao có bộ này, đắn đo, bản nháp, [[Kế hoạch triển khai]] |
-| `01 Cách làm việc/` | Luồng làm việc với AI, đối chiếu, ghi chú theo đợt, CV, tiết kiệm chi phí |
-| `02 Tiếp cận dự án mới/` | Checklist vào dự án, thư mục `.me/`, kết nối với AI |
-| `03 Chuẩn chung/` | Git, thiết kế code, lỗi + giao dịch + phản hồi, hằng số, log, bảo mật, DB, công cụ, tài liệu |
-| `04 Validate/` | Mỗi loại trường dữ liệu một file |
-| `05 Giao diện/` | Dialog, xác nhận, thông báo, hiển thị lỗi, trạng thái, form, bảng |
-| `06 Kiểm thử/` | Chiến lược, nối tới [[Testing]] và [[Unit & integrate test case]] |
-| `07 Giải pháp thường gặp/` | Đăng nhập, phân quyền, nhật ký thay đổi, upload, thùng rác, việc nền, tìm kiếm, hợp đồng API, vận hành, môi trường dev |
-| `08 Mẫu/` | Hồ sơ dự án, kế hoạch, minh chứng, tổng hợp CV |
-| `Hộp đề xuất/` | [[Ghi chú]] chờ đợt cập nhật |
+| Thư mục | Nội dung | Ai đọc, khi nào |
+|---|---|---|
+| `00 Nguồn gốc/` | Vì sao có bộ này, bản nháp, đắn đo | Lưu trữ — AI không đọc |
+| `01 Cách làm việc/` | Review trước commit, đối chiếu checklist, đợt cập nhật, CV | Khi làm việc tương ứng; định kỳ |
+| `02 Tiếp cận dự án mới/` | [[Khởi tạo dự án]], [[Công cụ và hook của dự án]] | Khởi tạo |
+| `03 Chuẩn chung/` → `07 Giải pháp thường gặp/` | Chuẩn, checklist, lựa chọn của tôi theo chủ đề | Khởi tạo (lọc); hằng ngày chỉ qua bảng tham khảo của dự án |
+| `08 Mẫu/` | Đề mục: [[Mẫu - Quy tắc dự án]], [[Mẫu - Bản đồ dự án]], kế hoạch, minh chứng, CV | Khởi tạo, khi cần mẫu |
+| `Hộp đề xuất/` | [[Ghi chú]] ghi tay chờ đợt cập nhật | Đợt cập nhật |
 
-Cách viết và giữ bộ này gọn: [[Duy trì Playbook]].
+Ở dự án công ty chỉ học **công nghệ, cách triển khai, giải pháp, sai lầm chung** — không ghi gì về công ty, hệ thống hay lỗ hổng của họ.
+
+Cách viết và giữ bộ này gọn: [[Duy trì Playbook]]. Playbook là bản đầu — gặp chỗ không đúng ý thì sửa thẳng "Lựa chọn của tôi".
