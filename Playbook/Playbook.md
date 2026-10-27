@@ -46,16 +46,16 @@ Dự án/.me/  quy tắc · bản đồ · tài liệu · công cụ và hook ri
 | Lớp | Ở đâu | Ai sửa |
 |---|---|---|
 | Tri thức cá nhân | Repo này, nằm sẵn trên máy; AI đọc tại chỗ | Mình, theo đợt |
-| Tài liệu riêng của dự án | `.me/` và file cá nhân AI tạo trong dự án, không commit vào repo nhóm | AI tạo khi khởi tạo, cập nhật khi code đổi, mình xác nhận |
+| Tài liệu riêng của dự án | `.me/` và file cá nhân AI tạo trong dự án: nằm trong thư mục dự án như `node_modules`, không commit vào bất kỳ repo nào | AI tạo khi khởi tạo, cập nhật khi code đổi, mình xác nhận |
 | Tài liệu của nhóm | Repo dự án | Theo quy trình nhóm — luôn thắng hai lớp trên |
 
-Không cài gì global: quy tắc, hook, lệnh đều nằm trong phạm vi từng dự án, mỗi dự án tuỳ chỉnh riêng, không ảnh hưởng dự án khác. Thiết lập **một lần lúc khởi tạo**; sau đó chỉ đổi khi mình yêu cầu — AI không tự thêm / đổi quy ước hay hook trong lúc làm việc.
+Không cài gì global: quy tắc, hook, lệnh đều nằm trong thư mục của từng dự án trên máy đó, không commit (mỗi lần clone về thì khởi tạo lại, xem [[Khởi tạo dự án]]), mỗi dự án tuỳ chỉnh riêng, không ảnh hưởng dự án khác. Thiết lập **một lần lúc khởi tạo**; sau đó chỉ đổi khi mình yêu cầu — AI không tự thêm / đổi quy ước hay hook trong lúc làm việc.
 
 ## Ba thời điểm
 
 | Khi | Mình làm | AI đọc |
 |---|---|---|
-| **Khởi tạo** (dự án mới / nhận lại / đổi công cụ) | Dán câu lệnh bên dưới, kèm đường dẫn kho trên máy | [[Khởi tạo dự án]] → lọc theo [[Mục lục cho AI]] |
+| **Khởi tạo** (dự án mới / dự án cũ trên máy mới / nhận lại / đổi công cụ) | Dán câu lệnh bên dưới, kèm đường dẫn kho trên máy | [[Khởi tạo dự án]] → lọc theo [[Mục lục cho AI]] |
 | **Hằng ngày** | Prompt như bình thường | Quy tắc của dự án (tự nạp) → bản đồ → đúng file; tri thức cá nhân chỉ theo bảng tham khảo trong quy tắc, hoặc khi mình yêu cầu |
 | **Định kỳ / khi yêu cầu** | Ra lệnh | [[Ghi chú và cập nhật theo đợt]], [[Thống kê công việc cho CV]] |
 

@@ -12,7 +12,7 @@ Dùng khi **khởi tạo dự án** (bước 4 của [[Khởi tạo dự án]]: 
 
 | File | Khi nào |
 |---|---|
-| `02 Tiếp cận dự án mới/Khởi tạo dự án.md` | Bắt đầu / nhận lại dự án, đổi công cụ AI hoặc editor |
+| `02 Tiếp cận dự án mới/Khởi tạo dự án.md` | Bắt đầu dự án, dự án cũ lần đầu trên máy này, nhận lại dự án, đổi công cụ AI hoặc editor |
 | `02 Tiếp cận dự án mới/Công cụ và hook của dự án.md` | Tạo / sửa công cụ và hook của dự án; kiểm tra lệch tài liệu |
 | `08 Mẫu/Mẫu - Quy tắc dự án.md`, `08 Mẫu/Mẫu - Bản đồ dự án.md` | Đề mục cho quy tắc và bản đồ của dự án |
 | `01 Cách làm việc/Review trước commit.md` | Trước khi đưa danh sách `git add` / commit message |
@@ -62,3 +62,4 @@ Dùng khi **khởi tạo dự án** (bước 4 của [[Khởi tạo dự án]]: 
 | Mẫu test case, báo cáo | `Technical/Concepts/Unit & integrate test case.md` |
 | Đăng nhập, cache, kho file, sao lưu, tìm kiếm | `Technical/Aggregates/` |
 | Đồng thời, tải lớn, API bên thứ ba | `Technical/Issues/` |
+| Công cụ bổ trợ cho AI: hiểu kho mã lớn, kho ghi chú, quy trình đặc tả | `Technical/Aggregates/Công cụ bổ trợ cho AI lập trình.md` |

@@ -6,7 +6,7 @@ cap_nhat: 2026-10-27
 ---
 # Công cụ và hook của dự án
 
-Danh sách **khả năng** mà mỗi dự án nên có sau khi khởi tạo. File này chỉ nói *cần đạt gì*; AI ở dự án tự hiện thực (script, hook, lệnh, kỹ năng, cấu hình) theo **công cụ AI, editor, hệ điều hành và ngôn ngữ của dự án** mà nó kiểm được lúc [[Khởi tạo dự án]]. Mọi thứ đặt **trong phạm vi dự án**, không cài global, không commit vào repo nhóm (dùng cơ chế loại trừ cục bộ của git, ví dụ `.git/info/exclude`). Mỗi dự án một bộ riêng, không ảnh hưởng dự án khác.
+Danh sách **khả năng** mà mỗi dự án nên có sau khi khởi tạo. File này chỉ nói *cần đạt gì*; AI ở dự án tự hiện thực (script, hook, lệnh, kỹ năng, cấu hình) theo **công cụ AI, editor, hệ điều hành và ngôn ngữ của dự án** mà nó kiểm được lúc [[Khởi tạo dự án]]. Mọi thứ đặt **trong phạm vi dự án**, không cài global, không commit vào bất kỳ repo nào (dùng cơ chế loại trừ cục bộ của git, ví dụ `.git/info/exclude`). Mỗi dự án một bộ riêng, không ảnh hưởng dự án khác.
 
 Thiết lập **một lần lúc khởi tạo** để làm việc chuẩn chỉ từ đầu; sau đó hook tự chạy, AI không tạo lại hay đổi hook trong lúc làm việc — chỉ khi mình yêu cầu.
 

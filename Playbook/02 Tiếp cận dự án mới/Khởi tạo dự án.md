@@ -16,9 +16,18 @@ Mở dự án, rồi:
 
 AI đọc kho **tại chỗ** theo đường dẫn, không clone, không chép cả kho vào dự án, và chỉ mở file trong **phạm vi đọc** ở [[Playbook]] (đi qua [[Mục lục cho AI]]). Phần ngoài phạm vi của kho — không mở, không tìm kiếm.
 
+## Bộ tài liệu riêng: chỉ trong thư mục dự án này, trên máy này
+
+Kết quả khởi tạo (`.me/` và mọi file AI tạo cho mình: điểm vào tự nạp, hook, lệnh) giống `node_modules`: **nằm trong thư mục dự án**, mở bằng editor / công cụ nào cũng thấy, nhưng **không bao giờ commit hay push** lên bất kỳ repo nào, kể cả repo riêng tư. Khác `node_modules` ở chỗ đây là tài liệu sửa được, không phải gói cài.
+
+- **Loại trừ cục bộ của git** (ví dụ `.git/info/exclude`), không sửa file bỏ qua dùng chung của repo (việc đó cũng là một commit).
+- **Clone về là chưa có:** dự án mới, dự án cũ, máy mới hay máy cài lại đều như nhau: chưa có `.me/` = chưa khởi tạo. Có `.me/` = dự án này trên máy này đã khởi tạo, không làm lại.
+- **Chỉ khi mình yêu cầu:** mình dán câu lệnh khởi tạo kèm đường dẫn kho tri thức **trên máy đó**. AI ghi đường dẫn này vào quy tắc của dự án. Mình không yêu cầu → AI không tự khởi tạo, không nhắc.
+- Không cài gì ở cấp máy / người dùng. Dự án khác, máy khác không bị ảnh hưởng.
+
 ## Đầu ra — các khối thông tin dự án phải có
 
-AI tự quyết tên file và cách chia cho hợp công cụ và dự án; chỉ cần đủ các khối, đặt trong thư mục cá nhân `.me/` ở gốc dự án, **không commit** vào repo nhóm (loại trừ cục bộ của git).
+AI tự quyết tên file và cách chia cho hợp công cụ và dự án; chỉ cần đủ các khối, đặt trong thư mục cá nhân `.me/` ở gốc dự án, **không commit** vào bất kỳ repo nào (loại trừ cục bộ của git).
 
 | Khối | Chứa gì | Đề mục theo |
 |---|---|---|
@@ -31,7 +40,7 @@ AI tự quyết tên file và cách chia cho hợp công cụ và dự án; ch�
 | **Đề xuất tri thức** | Điều học được dùng lại được, chờ đợt cập nhật | [[Ghi chú và cập nhật theo đợt]] |
 | **Công cụ và hook** | Điểm vào tự nạp, kiểm tra sau khi sửa, review trước commit, git hook, kiểm tra lệch tài liệu | [[Công cụ và hook của dự án]] |
 
-Khối nào không cần thì không tạo. Dự án cá nhân muốn lưu lại: được commit `.me/` vào repo riêng tư của mình, không vào repo nhóm.
+Khối nào không cần thì không tạo.
 
 ## Các bước
 
@@ -44,6 +53,7 @@ AI tự kiểm, chỉ hỏi phần không kiểm được:
 - [ ] **Editor** và plugin đã cài (đọc được thì đọc, không thì hỏi); dự án có danh sách plugin đề xuất không.
 - [ ] Ngôn ngữ, framework, phiên bản, DB của dự án (từ file cấu hình).
 - [ ] Dự án đã có gì cho AI: file quy tắc, kỹ năng, hook của nhóm.
+- [ ] **Máy**: cá nhân hay công ty; hệ điều hành thật (macOS, Windows, Windows + WSL: kho ghi chú và dự án nằm phía nào); chính sách công ty về cài công cụ, công cụ nối thêm cho AI, gửi mã / tài liệu cho dịch vụ AI.
 
 ### 2. Quét dự án và phân loại (chỉ cấu trúc, không đọc code)
 
@@ -104,6 +114,7 @@ Từ kết quả bước 1 và [[Công cụ kiểm tra tự động]], [[Công c
 
 - Plugin editor / công cụ dòng lệnh nên cài **cho mình** — đúng editor, đúng ngôn ngữ, chỉ cái còn thiếu.
 - Công cụ nên **đề xuất cho nhóm** (không tự thêm vào repo).
+- Công cụ bổ trợ cho AI (hiểu kho mã lớn, kho ghi chú, quy trình đặc tả): so dấu hiệu của dự án **và điều kiện của máy** (bước 1) với [[Công cụ bổ trợ cho AI lập trình]], chỉ đề xuất cái khớp, kèm đánh đổi và nơi đặt tệp. Không có công cụ nào khớp → nói rõ "không cần thêm" và lý do, không bỏ qua im lặng.
 - Khả năng nào trong [[Công cụ và hook của dự án]] sẽ tạo, hiện thực bằng cơ chế gì của công cụ AI hiện tại.
 - Điểm mù riêng của dự án — chỗ dễ sai mà tri thức chưa nói.
 
@@ -126,7 +137,7 @@ Quy tắc, tài liệu, công cụ và hook là **của riêng dự án này**, 
 
 Những lúc nên yêu cầu:
 
-- Đổi công cụ AI, editor hoặc máy → bước 1 + 6, sửa quy tắc và hook.
+- Đổi công cụ AI hoặc editor → bước 1 + 6, sửa quy tắc và hook. (Clone sang máy khác không phải "làm lại": đó là một lần khởi tạo mới.)
 - Dự án đổi công nghệ / cấu trúc lớn, hoặc nhận phần việc khác hẳn → bước 2, 4, 5 cho phần thay đổi.
 - Tri thức cá nhân có thay đổi đáng áp dụng → bảo AI so quy tắc dự án với file tương ứng và đề xuất.
 

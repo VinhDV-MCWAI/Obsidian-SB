@@ -16,6 +16,7 @@ dat_tai: "khối Quy tắc trong .me/ của dự án"
 | Công nghệ | <ngôn ngữ, framework, DB, phiên bản> |
 | Môi trường | <hệ điều hành, editor, công cụ AI — những gì ảnh hưởng cách làm> |
 | Không được đụng | <thư mục, dữ liệu, môi trường> |
+| Kho tri thức trên máy này | <đường dẫn …/Playbook mình đưa lúc khởi tạo> |
 
 ## Lệnh
 
@@ -98,7 +99,7 @@ Thiết lập lúc khởi tạo, riêng của dự án này. Không tự thêm /
 
 ## Tham khảo tri thức cá nhân
 
-Đường dẫn: `<…>/Playbook` (máy khác / không thấy → hỏi mình). Chỉ mở khi việc chạm **đúng dòng**, chỉ đọc **phạm vi** ghi ở cột cuối. Không có trong bảng → không tự mở. Mình yêu cầu tham khảo chủ đề chưa có → tra `Mục lục cho AI.md`, mở đúng file, rồi đề xuất thêm dòng vào bảng này. Ngoài `Playbook/` và file mục lục liệt kê → không mở, không tìm kiếm. Khi có mở, đầu câu trả lời ghi một dòng `Tri thức: <file> (<lý do>)`.
+Đường dẫn: dòng "Kho tri thức trên máy này" ở mục Dự án (không thấy → hỏi mình). Chỉ mở khi việc chạm **đúng dòng**, chỉ đọc **phạm vi** ghi ở cột cuối. Không có trong bảng → không tự mở. Mình yêu cầu tham khảo chủ đề chưa có → tra `Mục lục cho AI.md`, mở đúng file, rồi đề xuất thêm dòng vào bảng này. Ngoài `Playbook/` và file mục lục liệt kê → không mở, không tìm kiếm. Khi có mở, đầu câu trả lời ghi một dòng `Tri thức: <file> (<lý do>)`.
 
 | Khi việc chạm | File (từ `Playbook/`) | Phạm vi đọc |
 |---|---|---|
