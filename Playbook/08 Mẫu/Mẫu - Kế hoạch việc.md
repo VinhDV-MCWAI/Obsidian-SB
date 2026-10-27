@@ -10,6 +10,12 @@ dung_cho: viec-lon
 | Cỡ | Vừa / Lớn |
 | Chuẩn sẽ đối chiếu | (file trong Playbook) |
 
+## Làm rõ ([[Nhận và làm rõ yêu cầu]])
+
+| Câu hỏi | Trả lời / giả định | Nguồn |
+|---|---|---|
+| | | |
+
 ## Mục tiêu và tiêu chí chấp nhận
 
 - [ ] …
@@ -19,6 +25,16 @@ dung_cho: viec-lon
 | Làm | Không làm (để sau / ngoài phạm vi) |
 |---|---|
 | | |
+
+## Thiết kế ([[Thiết kế trước khi làm]])
+
+| Loại | Có / bỏ (vì sao) | Ở đâu |
+|---|---|---|
+| Use case | | |
+| Luồng | | |
+| ERD | | |
+| Giao diện | | |
+| API | | |
 
 ## Thay đổi
 
@@ -51,6 +67,8 @@ dung_cho: viec-lon
 Quay lui: (revert commit / migration down / tắt cờ tính năng)
 
 ## Kiểm tra
+
+Kế hoạch test: [[Mẫu - Kế hoạch test]] (phần cần xác nhận ghi ở "Cần duyệt").
 
 | Kiểm gì | Bằng gì |
 |---|---|

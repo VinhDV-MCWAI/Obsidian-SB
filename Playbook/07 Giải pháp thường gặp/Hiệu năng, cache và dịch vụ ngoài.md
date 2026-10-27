@@ -17,12 +17,10 @@ Nền: [[Redis]], [[Các Vấn Đề Chung Khi Nói Về Hệ Thống Có Triệ
 
 ## Hiệu năng
 
-- [ ] Danh sách luôn phân trang; giới hạn số dòng mỗi trang.
-- [ ] Không truy vấn lặp theo từng dòng (N+1); nạp quan hệ trước.
-- [ ] Index cho cột lọc / sắp xếp / khoá ngoại; xem kế hoạch truy vấn khi chậm ([[Dữ liệu và DB]]).
+- [ ] Truy vấn: phân trang, không N+1, index, xem kế hoạch truy vấn khi chậm — [[Dữ liệu và DB]], mục Truy vấn.
 - [ ] Việc lâu chuyển sang việc nền ([[Việc nền và thông báo tức thì]]).
 - [ ] Ảnh / file tĩnh phục vụ qua kho file / CDN, không qua ứng dụng.
-- [ ] Đo bằng công cụ tải (k6, JMeter…) trước khi phát hành API nặng; ghi kết quả.
+- [ ] Đo bằng công cụ kiểm tải trước khi phát hành API nặng; ghi kết quả.
 
 ## Cache
 
